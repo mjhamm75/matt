@@ -3,15 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Grants</title>
+    <script src="jquery.js"></script>
   </head>
   <body>
     <h1>Grant Submission Form</h1>
     <a href="/admin.html">Admin</a>
     <a href="/index.html">Home</a>
     <div>
-      <form method="POST" action="https://internalgrantdev.azurewebsites.net/api/Grants/">
-        Title: <input type="text" name="title"><br>
-        PI: <input type="text" name="pi"><br>
+      <form id="form">
+        Title: <input id="title" type="text" name="title"><br>
+        PI: <input id="pi" type="text" name="pi"><br>
         College: <input type="text" name="college"><br>
         Dept: <input type="text" name="dept"><br>
         ConferenceDate: <input type="text" name="conferencedate"><br>
@@ -19,8 +20,9 @@
         Purpose: <input type="text" name="purpose"><br>
         Amount: <input type="text" name="amount"><br>
         Attendees: <input type="text" name="attendees"><br>
-        <input type="submit" value="Submit">
+        <button id="button">Submit</button
       </form>
     </div>
+    <script src="application.js"></script>
   </body>
 </html>
