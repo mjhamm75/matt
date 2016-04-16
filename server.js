@@ -7,11 +7,7 @@ var app = express();
 var GRANT_URL = 'https://internalgrantdev.azurewebsites.net/api/Grants';
 
 app.use(bodyParser.json());
-app.use(__dirname, express.static('public'));
-
-app.get('/', function(req, res) {
-  res.sendFile('index.html');
-})
+app.use(express.static('public'));
 
 app.get('/heartbeat', function(req, res) {
   res.json({
