@@ -6,23 +6,26 @@
     <script src="jquery.js"></script>
   </head>
   <body>
-    <h1>Grant Submission Form</h1>
-    <a href="/admin.html">Admin</a>
     <a href="/index.html">Home</a>
+    <a href="/submission.html">Submission</a>
+    <a href="/submissions.html">Submissions</a>
+    <a href="/starthere.html">Start Here</a>
+    <a href="/application.html">Application</a>
+    <h1>Grant Submission Form</h1>
     <div>
       <div id="error-message"></div>
-      <form id="form">
-        Title: <input id="title" type="text" name="title"><br>
-        PI: <input id="pi" type="text" name="pi"><br>
-        College: <input type="text" name="college"><br>
-        Dept: <input type="text" name="dept"><br>
-        ConferenceDate: <input type="text" name="conferencedate"><br>
-        Location: <input type="text" name="location"><br>
-        Purpose: <input type="text" name="purpose"><br>
-        Amount: <input type="text" name="amount"><br>
-        Attendees: <input type="text" name="attendees"><br>
+      <div id="form">
+        Title: <input id="title" class="clear-data" type="text" name="title"><br>
+        PI: <input id="pi" class="clear-data" type="text" name="pi"><br>
+        College: <input id="college" class="clear-data" type="text" name="college"><br>
+        Dept: <input id="dept" class="clear-data" type="text" name="dept"><br>
+        ConferenceDate: <input id="conferencedate" class="clear-data" type="text" name="conferencedate"><br>
+        Location: <input id="location" class="clear-data" type="text" name="location"><br>
+        Purpose: <input id="purpose" class="clear-data" type="text" name="purpose"><br>
+        Amount: <input id="amount" class="clear-data" type="text" name="amount"><br>
+        Attendees: <input id="attendees" class="clear-data" type="text" name="attendees"><br>
         <button id="button">Submit</button
-      </form>
+      </div>
     </div>
     <script src="application.js"></script>
   </body>
