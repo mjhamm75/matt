@@ -2,7 +2,7 @@ module.exports = {
     "grants": [{
             "Id": 1,
             "Title": "Mary",
-            "Principal": "had",
+            "PI": "had",
             "College": "a",
             "Dept": "little",
             "ConferenceDate": "lamb",
@@ -17,7 +17,7 @@ module.exports = {
         }, {
           "Id": 2,
           "Title": "Little",
-          "Principal": "Jimmy",
+          "PI": "Jimmy",
           "College": "wanted",
           "Dept": "a",
           "ConferenceDate": "toy",
@@ -32,7 +32,7 @@ module.exports = {
         }, {
           "Id": 3,
           "Title": "The",
-          "Principal": "relationship",
+          "PI": "relationship",
           "College": "was",
           "Dept": "doomed",
           "ConferenceDate": "when",

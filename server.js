@@ -4,7 +4,7 @@ var bodyParser = require('body-parser')
 
 var app = express();
 
-var GRANT_URL = 'https://internalgrantdev.azurewebsites.net/api/Grants';
+var GRANT_URL = 'https://internalgrantdev.azurewebsites.net/api/MGrants';
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
@@ -14,32 +14,32 @@ app.get('/heartbeat', function(req, res) {
     is: 'working'
   })
 })
-var data = require('./mock/mock-grants');
+// var data = require('./mock/mock-grants');
 app.get('/grants', function(req, res) {
-  res.json({
-    data: data
-  });
+  // res.json({
+  //   data: data
+  // });
 
-//   axios.get(`${GRANT_URL}`)
-//     .then(result => {
-//       res.json({
-//         grants: result.data
-//       })
-//     })
-//     .catch(err => console.log(err));
+  axios.get(`${GRANT_URL}`)
+    .then(result => {
+      res.json({
+        grants: result.data
+      })
+    })
+    .catch(err => console.log(err));
 })
 
 app.get('/grants/:id', function(req, res) {
-  res.json({
-    data: data[0]
-  })
-  // var id = req.params.id;
-  // axios.get(`${GRANT_URL}/${id}`)
-  //   .then(result => {
-  //     res.json({
-  //       grants: result.data
-  //     })
-  //   })
+  // res.json({
+  //   data: data[0]
+  // })
+  var id = req.params.id;
+  axios.get(`${GRANT_URL}/${id}`)
+    .then(result => {
+      res.json({
+        grants: result.data
+      })
+    })
 })
 
 app.post('/grants', function(req, res) {
@@ -72,6 +72,6 @@ app.delete('/grants/:id', function(req, res) {
     })
 })
 
-app.listen(3001, function() {
+app.listen(3000, function() {
   console.log('is listening');
 })

@@ -10,7 +10,7 @@ $.get('/grants')
       var li = $('<li id="' + grant.Id + '"></li>');
       var theId = $('<div>' + grant.Id + '</div>');
       var theTitle = $('<div>' + grant.Title + '</div>');
-      var thePrincipal = $('<div>' + grant.Principal + '</div>');
+      var thePI = $('<div>' + grant.['PI'] + '</div>');
       var theCollege = $('<div>' + grant.College + '</div>');
       var theDept = $('<div>' + grant.Dept + '</div>');
       var theConferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
@@ -22,7 +22,7 @@ $.get('/grants')
       var theCustom1 = $('<div>' + grant.Custom1 + '</div>');
       var theCustom2 = $('<div>' + grant.Custom2 + '</div>');
       var theCustom3 = $('<div>' + grant.Custom3 + '</div>');
-      li.append(theId).append(theTitle).append(thePrincipal).append(theCollege).append(theDept).append(theConferenceDate).append(theLocation).append(thePurpose).append(theAmount).append(theAttendees).append(theSubmissionStatus).append(theCustom1).append(theCustom2).append(theCustom3).append(viewApplication).append(deleteApplication);
+      li.append(theId).append(theTitle).append(thePI).append(theCollege).append(theDept).append(theConferenceDate).append(theLocation).append(thePurpose).append(theAmount).append(theAttendees).append(theSubmissionStatus).append(theCustom1).append(theCustom2).append(theCustom3).append(viewApplication).append(deleteApplication);
       ul.append(li);
     });
 
