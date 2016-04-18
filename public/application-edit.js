@@ -19,7 +19,20 @@ $.get('/MGrants/' + id)
     var theCustom1 = $('<div>' + grant.Custom1 + '</div>');
     var theCustom2 = $('<div>' + grant.Custom2 + '</div>');
     var theCustom3 = $('<div>' + grant.Custom3 + '</div>');
-    theDiv.append(theId).append(theTitle).append(thePI).append(theCollege).append(theDept).append(theConferenceDate).append(theLocation).append(thePurpose).append(theAmount).append(theAttendees).append(theSubmissionStatus).append(theCustom1).append(theCustom2).append(theCustom3);
+    theDiv.append(theId)
+          .append(theTitle)
+          .append(thePI)
+          .append(theCollege)
+          .append(theDept)
+          .append(theConferenceDate)
+          .append(theLocation)
+          .append(thePurpose)
+          .append(theAmount)
+          .append(theAttendees)
+          .append(theSubmissionStatus)
+          .append(theCustom1)
+          .append(theCustom2)
+          .append(theCustom3);
 
     $('#detail-view').append(theDiv);
   })

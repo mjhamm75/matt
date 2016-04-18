@@ -4,7 +4,6 @@ $.get('/MGrants')
     var ul = $('<ul></ul>');
 
     grants.forEach(function(grant) {
-      // var viewApplication = $('<a href="/MGrants/' + grant.Id + '" id="view">View</a>');
       var url = "application-edit.html#" + grant.Id;
       var viewApplication = $('<a href="' + url +'" id="view">View</a>');
       var deleteApplication = $('<a href="#">Delete</a>');
@@ -17,7 +16,6 @@ $.get('/MGrants')
           method: 'DELETE'
         })
         .done(function(res) {
-          // alert(li);
           $(li).remove();
         });
       });
@@ -38,7 +36,23 @@ $.get('/MGrants')
       var theCustom1 = $('<div>' + grant.Custom1 + '</div>');
       var theCustom2 = $('<div>' + grant.Custom2 + '</div>');
       var theCustom3 = $('<div>' + grant.Custom3 + '</div>');
-      li.append(theId).append(theTitle).append(thePI).append(theCollege).append(theDept).append(theConferenceDate).append(theLocation).append(thePurpose).append(theAmount).append(theAttendees).append(theSubmissionStatus).append(theCustom1).append(theCustom2).append(theCustom3).append(viewApplication).append(deleteApplication);
+      li.append(theId)
+        .append(theTitle)
+        .append(thePI)
+        .append(theCollege)
+        .append(theDept)
+        .append(theConferenceDate)
+        .append(theLocation)
+        .append(thePurpose)
+        .append(theAmount)
+        .append(theAttendees)
+        .append(theSubmissionStatus)
+        .append(theCustom1)
+        .append(theCustom2)
+        .append(theCustom3)
+        .append(viewApplication)
+        .append(deleteApplication);
+
       ul.append(li);
     });
 
