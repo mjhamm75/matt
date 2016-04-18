@@ -28,5 +28,5 @@ $.get('/grants')
 
 
 
-    $('#list-view').append(ul);
+    $('#detail-view').append(ul);
   });
