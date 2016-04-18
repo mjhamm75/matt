@@ -21,11 +21,11 @@ $.get('/grants')
 
 
     grants.forEach(function(grant) {
-      debugger;
+      // debugger;
       var li = $('<li></li>');
-      // var divId = $('<div>' + grant['Id'] + '</div>');
-      var divName = $('<div>' + grant[Title] + '</div>');
-      debugger;
+      var divId = $('<div>' + grant.Id + '</div>');
+      var divName = $('<div>' + grant.Title + '</div>');
+      // debugger;
       li.append(divId).append(divName);
       ul.append(li);
     })
