@@ -14,25 +14,32 @@ app.get('/heartbeat', function(req, res) {
     is: 'working'
   })
 })
-
+var data = require('./mock/mock-grants');
 app.get('/grants', function(req, res) {
-  axios.get(`${GRANT_URL}`)
-    .then(result => {
-      res.json({
-        grants: result.data
-      })
-    })
-    .catch(err => console.log(err));
+  res.json({
+    data: data
+  });
+
+//   axios.get(`${GRANT_URL}`)
+//     .then(result => {
+//       res.json({
+//         grants: result.data
+//       })
+//     })
+//     .catch(err => console.log(err));
 })
 
 app.get('/grants/:id', function(req, res) {
-  var id = req.params.id;
-  axios.get(`${GRANT_URL}/${id}`)
-    .then(result => {
-      res.json({
-        grants: result.data
-      })
-    })
+  res.json({
+    data: data[0]
+  })
+  // var id = req.params.id;
+  // axios.get(`${GRANT_URL}/${id}`)
+  //   .then(result => {
+  //     res.json({
+  //       grants: result.data
+  //     })
+  //   })
 })
 
 app.post('/grants', function(req, res) {
