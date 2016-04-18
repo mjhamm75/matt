@@ -17,12 +17,13 @@ $.get('/MGrants')
           method: 'DELETE'
         })
         .done(function(res) {
-          debugger;
+          // alert(li);
+          $(li).remove();
         });
       });
 
 
-      var li = $('<li id="' + grant.Id + '"></li>');
+      var li = $('<li id="application' + grant.Id + '"></li>');
       var theId = $('<div>' + grant.Id + '</div>');
       var theTitle = $('<div>' + grant.Title + '</div>');
       var thePI = $('<div>' + grant['PI'] + '</div>');

@@ -10,8 +10,10 @@ $('#button').click(function(e) {
   var amount = document.getElementById('amount').value;
   var attendees = document.getElementById('attendees').value;
 
+  var GRANT_URL = 'http://internalgrantdev.azurewebsites.net/api/MGrants';
+
   $.ajax({
-    url: 'https://internalgrantdev.azurewebsites.net/api/Grants/',
+    url: GRANT_URL,
     method: 'POST',
     data: {
       "Title" : title,
