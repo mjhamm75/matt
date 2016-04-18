@@ -7,12 +7,18 @@ $.get('/MGrants')
       // var viewApplication = $('<a href="/MGrants/' + grant.Id + '" id="view">View</a>');
       var url = "application-edit.html#" + grant.Id;
       var viewApplication = $('<a href="' + url +'" id="view">View</a>');
-      var deleteApplication = $('<a href="/MGrants/' + grant.Id + '" id="view">Delete</a>');
+      var deleteApplication = $('<a href="#">Delete</a>');
       viewApplication.on('click', function() {
         $("#detail-view").load("/MGrants/" + grant.Id);
       });
-      deleteApplication.on('click', function() {
-        alert('Confirm Delete');
+      deleteApplication.on('click', function(e) {
+        e.preventDefault();
+        $.ajax('/MGrants/' + grant.Id, {
+          method: 'DELETE'
+        })
+        .done(function(res) {
+          debugger;
+        });
       });
 
 
