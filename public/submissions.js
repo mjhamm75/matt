@@ -1,17 +1,20 @@
-$.get('/grants')
+$.get('/MGrants')
   .done(function(res) {
-    debugger;
     var grants = res.grants;
     var ul = $('<ul></ul>');
 
     grants.forEach(function(grant) {
-      var viewApplication = $('<a href="/MGrants/' + grant.Id + '" id="view">View</a>');
+      // var viewApplication = $('<a href="/MGrants/' + grant.Id + '" id="view">View</a>');
+      var viewApplication = $('<a href="application-edit.html/" id="view">View</a>');
+      var deleteApplication = $('<a href="/MGrants/' + grant.Id + '" id="view">Delete</a>');
       viewApplication.on('click', function() {
-        debugger;
-        // DO LOGIC HERE
+        $("#detail-view").load("/MGrants/" + grant.Id);
+      });
+      deleteApplication.on('click', function() {
+        alert('Confirm Delete');
       });
 
-      var deleteApplication = $('<a href="3" id="delete">Delete</a>');
+
       var li = $('<li id="' + grant.Id + '"></li>');
       var theId = $('<div>' + grant.Id + '</div>');
       var theTitle = $('<div>' + grant.Title + '</div>');
