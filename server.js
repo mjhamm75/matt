@@ -42,9 +42,9 @@ app.get('/MGrants/:id', function(req, res) {
     })
 })
 
-app.post('/grants', function(req, res) {
+app.post('/MGrants', function(req, res) {
   var body = req.body;
-  axios.post('https://internalgrantdev.azurewebsites.net/api/Grants/', body)
+  axios.post(`${GRANT_URL}`, body)
     .then(result => {
       res.json({
         grant: result.data
@@ -52,9 +52,9 @@ app.post('/grants', function(req, res) {
     })
 })
 
-app.put('/grants/:id', function(req, res) {
+app.put('/MGrants/:id', function(req, res) {
   var body = req.body;
-  axios.post(`https://internalgrantdev.azurewebsites.net/api/Grants/${id}`, body)
+  axios.post(`${GRANT_URL}/${id}`, body)
     .then(result => {
       res.json({
         grant: result.data
@@ -64,7 +64,7 @@ app.put('/grants/:id', function(req, res) {
 
 app.delete('/MGrants/:id', function(req, res) {
   var id = req.params.id;
-  axios.delete(`https://internalgrantdev.azurewebsites.net/api/MGrants/${id}`)
+  axios.delete(`${GRANT_URL}/${id}`)
     .then(result => {
       res.json({
         grant: result.data
