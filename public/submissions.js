@@ -3,10 +3,14 @@ $.get('/grants')
     var grants = res.data.grants;
     var ul = $('<ul></ul>');
 
-
     grants.forEach(function(grant) {
-      var viewApplication = $('<div>View</div>');
-      var deleteApplication = $('<div>Delete</div>');
+      var viewApplication = $('<a href="#" id="view">View</a>');
+      viewApplication.on('click', function() {
+        debugger;
+        // DO LOGIC HERE
+      });
+
+      var deleteApplication = $('<a href="3" id="delete">Delete</a>');
       var li = $('<li id="' + grant.Id + '"></li>');
       var theId = $('<div>' + grant.Id + '</div>');
       var theTitle = $('<div>' + grant.Title + '</div>');
@@ -25,8 +29,6 @@ $.get('/grants')
       li.append(theId).append(theTitle).append(thePrincipal).append(theCollege).append(theDept).append(theConferenceDate).append(theLocation).append(thePurpose).append(theAmount).append(theAttendees).append(theSubmissionStatus).append(theCustom1).append(theCustom2).append(theCustom3).append(viewApplication).append(deleteApplication);
       ul.append(li);
     });
-
-
 
     $('#list-view').append(ul);
   });
