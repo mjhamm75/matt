@@ -8,6 +8,7 @@ var GRANT_URL = 'http://internalgrantdev.azurewebsites.net/api/MGrants';
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/heartbeat', function(req, res) {
   res.json({
@@ -54,7 +55,10 @@ app.post('/grants', function(req, res) {
 
 app.put('/grants/:id', function(req, res) {
   var body = req.body;
-  axios.post(`${GRANT_URL}/${id}`, body)
+  var id = req.params.id;
+  console.log(body);
+  console.log(id)
+  axios.put(`${GRANT_URL}/${id}`, body)
     .then(result => {
       res.json({
         grant: result.data
