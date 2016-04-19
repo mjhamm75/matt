@@ -4,7 +4,7 @@ $.get('/MGrants')
     var ul = $('<ul></ul>');
 
     grants.forEach(function(grant) {
-      var url = "application-edit.html#" + grant.Id;
+      var url = "submission-detail.html#" + grant.Id;
       var viewApplication = $('<a href="' + url +'" id="view">View</a>');
       var deleteApplication = $('<a href="#">Delete</a>');
       viewApplication.on('click', function() {
