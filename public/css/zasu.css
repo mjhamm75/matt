@@ -299,6 +299,11 @@ h1 {
   cursor: pointer;
   text-align: right;
   width: 46px;
+  transition: 0.3s all ease-in-out;
+}
+
+.list .request div:last-of-type:hover {
+  color: #f40707; /* dark blue */
 }
 
 

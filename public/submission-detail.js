@@ -1,35 +1,35 @@
 var id = window.location.hash.substring(1);
 
 function updateGrantView(grant) {
-  var theDiv = $('<div></div>')
-  var theId = $('<div>' + grant.Id + '</div>');
-  var theTitle = $('<div>' + grant.Title + '</div>');
-  var thePI = $('<div>' + grant['PI'] + '</div>');
-  var theCollege = $('<div>' + grant.College + '</div>');
-  var theDept = $('<div>' + grant.Dept + '</div>');
-  var theConferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
-  var theLocation = $('<div>' + grant.Location + '</div>');
-  var thePurpose = $('<div>' + grant.Purpose + '</div>');
-  var theAmount = $('<div>' + grant.Amount + '</div>');
-  var theAttendees = $('<div>' + grant.Attendees + '</div>');
-  var theSubmissionStatus = $('<div>' + grant.SubmissionStatus + '</div>');
-  var theCustom1 = $('<div>' + grant.Custom1 + '</div>');
-  var theCustom2 = $('<div>' + grant.Custom2 + '</div>');
-  var theCustom3 = $('<div>' + grant.Custom3 + '</div>');
-  theDiv.append(theId)
-        .append(theTitle)
-        .append(thePI)
-        .append(theCollege)
-        .append(theDept)
-        .append(theConferenceDate)
-        .append(theLocation)
-        .append(thePurpose)
-        .append(theAmount)
-        .append(theAttendees)
-        .append(theSubmissionStatus)
-        .append(theCustom1)
-        .append(theCustom2)
-        .append(theCustom3);
+  var detailDiv = $('<div></div>')
+  var id = $('<div>' + grant.Id + '</div>');
+  var title = $('<div>' + grant.Title + '</div>');
+  var pI = $('<div>' + grant['PI'] + '</div>');
+  var college = $('<div>' + grant.College + '</div>');
+  var dept = $('<div>' + grant.Dept + '</div>');
+  var conferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
+  var location = $('<div>' + grant.Location + '</div>');
+  var purpose = $('<div>' + grant.Purpose + '</div>');
+  var amount = $('<div>' + grant.Amount + '</div>');
+  var attendees = $('<div>' + grant.Attendees + '</div>');
+  var submissionStatus = $('<div>' + grant.SubmissionStatus + '</div>');
+  var custom1 = $('<div>' + grant.Custom1 + '</div>');
+  var custom2 = $('<div>' + grant.Custom2 + '</div>');
+  var custom3 = $('<div>' + grant.Custom3 + '</div>');
+  detailDiv.append(id)
+        .append(title)
+        .append(pI)
+        .append(college)
+        .append(dept)
+        .append(conferenceDate)
+        .append(location)
+        .append(purpose)
+        .append(amount)
+        .append(attendees)
+        .append(submissionStatus)
+        .append(custom1)
+        .append(custom2)
+        .append(custom3);
 
   var inputDiv = $('<div></div>');
   var inputId = $('<input />').val(grant.Id);
@@ -46,7 +46,7 @@ function updateGrantView(grant) {
   var inputCustom1 = $('<input />').val(grant.Custom1);
   var inputCustom2 = $('<input />').val(grant.Custom2);
   var inputCustom3 = $('<input />').val(grant.Custom3);
-  inputDiv.append(theId)
+  inputDiv.append(inputId)
         .append(inputTitle)
         .append(inputPI)
         .append(inputCollege)
@@ -62,7 +62,7 @@ function updateGrantView(grant) {
         .append(inputCustom3);
 
 
-  $('#detail-view').append(theDiv);
+  $('#detail-view').append(detailDiv);
   $('#edit-view').append(inputDiv);
 }
 
@@ -73,13 +73,55 @@ $.get('/grants/' + id)
 
 
 $(document).on('click', '#update', function(e) {
-  $('/grants', {
-    method: 'POST',
-    data: {
+  var GRANT_URL = 'http://internalgrantdev.azurewebsites.net/api/MGrants/' + inputId;
+  alert(GRANT_URL);
+//  $('/grants', {
+//    url: GRANT_URL,
+//    method: 'POST',
+//    data: {
+//      "Title" : title,
+//      "PI" : pi,
+//      "College" : college,
+//      "Dept" : dept,
+//      "ConferenceDate" : conferencedate,
+//      "Location" : location,
+//      "Purpose" : purpose,
+//      "Amount" : amount,
+//      "Attendees" : attendees
+//    }
+//  })
+//  .done(function(res) {
+//    updateGrantView(res.grant);
+//  })
+//  .error(function(err) {
+//    alert('Something is not right');
+//  });
 
-    }
-  })
-  .done(function(res) {
-    updateGrantView(res.grant);
+
+
+
+    $.ajax({
+      url: GRANT_URL,
+      method: 'POST',
+      data: {
+        "Id" : inputId,
+        "Title" : title,
+        "PI" : pi,
+        "College" : college,
+        "Dept" : dept,
+        "ConferenceDate" : conferencedate,
+        "Location" : location,
+        "Purpose" : purpose,
+        "Amount" : amount,
+        "Attendees" : attendees
+      }
+    })
+    
+    .done(function (result) {
+      alert('it is done');
+    })
+    .error(function(err) {
+      alert('Something is not right');
+    });
   });
-})
+

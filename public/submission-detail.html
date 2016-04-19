@@ -2,26 +2,32 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Grants</title>
+    <title>GSU Test API</title>
     <script src="jquery.js"></script>
+    <link rel="stylesheet" href="css/zasu.css" />
   </head>
+  
   <body>
-    <a href="/index.html">Home</a>
-    <a href="/submission.html">Submission</a>
-    <a href="/submissions.html">Submissions</a>
-    <a href="/starthere.html">Start Here</a>
-    <a href="/application.html">Application</a>
-    <a href="/submission-detail.html">Submission Detail</a>
-    <h1>Grant Submission Form</h1>
-    <div id="application-edit">
+    <div class="outer-wrap">
+      <div class="inner-wrap">
+        <div id="header"></div>
+        <h1>Grant Request :  Detail View</h1>
+        <div id="detail-view"></div>
+        <div id="edit-view"></div>
+        <button id="edit">Edit</button>
+        <button id="update">Update</button>
+        <button id="approve">Approve</button>
+        <button id="reject">Reject</button>
+        <button id="pending">Pending</button>
+      </div>
+    </div>
 
-    </div>
-    <div id="detail-view">
-    </div>
-    <div id="edit-view">
-    </div>
-    <button id="edit">Edit</button>
-    <button id="update">Update</button>
-    <script src="submission-detail.js"></script>
   </body>
+  
+  <footer>
+    <script src="submission-detail.js"></script>
+    <script src="js/header.js"></script>
+    <script src="js/dimensionly-0.4c.js"></script>
+  </footer>
+  
 </html>
