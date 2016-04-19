@@ -37,7 +37,7 @@ app.get('/MGrants/:id', function(req, res) {
   axios.get(`${GRANT_URL}/${id}`)
     .then(result => {
       res.json({
-        grants: result.data
+        grant: result.data
       })
     })
 })
