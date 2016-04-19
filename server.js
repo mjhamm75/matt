@@ -15,7 +15,7 @@ app.get('/heartbeat', function(req, res) {
   })
 })
 // var data = require('./mock/mock-grants');
-app.get('/MGrants', function(req, res) {
+app.get('/grants', function(req, res) {
   // res.json({
   //   data: data
   // });
@@ -29,7 +29,7 @@ app.get('/MGrants', function(req, res) {
     .catch(err => console.log(err));
 })
 
-app.get('/MGrants/:id', function(req, res) {
+app.get('/grants/:id', function(req, res) {
   // res.json({
   //   data: data[0]
   // })
@@ -37,12 +37,12 @@ app.get('/MGrants/:id', function(req, res) {
   axios.get(`${GRANT_URL}/${id}`)
     .then(result => {
       res.json({
-        grants: result.data
+        grant: result.data
       })
     })
 })
 
-app.post('/MGrants', function(req, res) {
+app.post('/grants', function(req, res) {
   var body = req.body;
   axios.post(`${GRANT_URL}`, body)
     .then(result => {
@@ -52,7 +52,7 @@ app.post('/MGrants', function(req, res) {
     })
 })
 
-app.put('/MGrants/:id', function(req, res) {
+app.put('/grants/:id', function(req, res) {
   var body = req.body;
   axios.post(`${GRANT_URL}/${id}`, body)
     .then(result => {
@@ -62,7 +62,7 @@ app.put('/MGrants/:id', function(req, res) {
     })
 })
 
-app.delete('/MGrants/:id', function(req, res) {
+app.delete('/grants/:id', function(req, res) {
   var id = req.params.id;
   axios.delete(`${GRANT_URL}/${id}`)
     .then(result => {
