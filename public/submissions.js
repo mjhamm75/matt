@@ -1,4 +1,4 @@
-$.get('/MGrants')
+$.get('/grants')
   .done(function(res) {
     var grants = res.grants;
     var ul = $('<ul></ul>');
@@ -8,11 +8,11 @@ $.get('/MGrants')
       var viewApplication = $('<a href="' + url +'" id="view">View</a>');
       var deleteApplication = $('<a href="#">Delete</a>');
       viewApplication.on('click', function() {
-        $("#detail-view").load("/MGrants/" + grant.Id);
+        $("#detail-view").load("/grants/" + grant.Id);
       });
       deleteApplication.on('click', function(e) {
         e.preventDefault();
-        $.ajax('/MGrants/' + grant.Id, {
+        $.ajax('/grants/' + grant.Id, {
           method: 'DELETE'
         })
         .done(function(res) {

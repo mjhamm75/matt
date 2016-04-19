@@ -66,7 +66,7 @@ function updateGrant(grant) {
   $('#edit-view').append(inputDiv);
 }
 
-$.get('/MGrants/' + id)
+$.get('/grants/' + id)
   .done(function(res) {
     updateGrant(res.grant);
   })
