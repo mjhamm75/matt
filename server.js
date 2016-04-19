@@ -56,8 +56,6 @@ app.post('/grants', function(req, res) {
 app.put('/grants/:id', function(req, res) {
   var body = req.body;
   var id = req.params.id;
-  console.log(body);
-  console.log(id)
   axios.put(`${GRANT_URL}/${id}`, body)
     .then(result => {
       res.json({
