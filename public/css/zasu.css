@@ -1,0 +1,474 @@
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+
+	Eric Meyer					:: http://meyerweb.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+
+-------------------------------------------------------------------------------*/
+
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+
+article, aside, figure, footer, header, nav, section, details, summary {display: block;}
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img,
+object,
+embed {max-width: 100%;}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {overflow-y: scroll;}
+
+/* we use a lot of ULs that aren't bulleted.
+	don't forget to restore the bullets within content. */
+ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {content: ''; content: none;}
+
+a {margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent;}
+
+del {text-decoration: line-through;}
+
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+
+/* tables still need cellspacing="0" in the markup */
+table {border-collapse: collapse; border-spacing: 0;}
+th {font-weight: bold; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+
+hr {display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0;}
+
+input, select {vertical-align: middle;}
+
+pre {
+    white-space: pre; /* CSS2 */
+    white-space: pre-wrap; /* CSS 2.1 */
+    white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */
+    word-wrap: break-word; /* IE */
+}
+
+input[type="radio"] {vertical-align: text-bottom;}
+input[type="checkbox"] {vertical-align: bottom;}
+.ie7 input[type="checkbox"] {vertical-align: baseline;}
+
+select, input, textarea {font: 99% sans-serif;}
+
+table {font-size: inherit; font: 100%;}
+
+small {font-size: 85%;}
+
+strong {font-weight: bold;}
+
+td, td img {vertical-align: top;}
+
+/* Make sure sup and sub don't screw with your line-heights
+	gist.github.com/413930 */
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {cursor: pointer;}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {margin: 0;}
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {width: auto; overflow: visible;}
+
+/* scale images in IE7 more attractively */
+.ie7 img {-ms-interpolation-mode: bicubic;}
+
+// Canister specific resets
+
+// box sizing ; actual size
+* { -moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box; }
+
+/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
+::-moz-selection{background: $highlight-bg; color: $highlight-fg; text-shadow: none;}
+::selection {background: $highlight-bg; color: $highlight-fg; text-shadow: none;}
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {-webkit-tap-highlight-color: rgba(0,0,0,0);}
+
+ins {background-color: #000; color: #000; text-decoration: none;}
+mark {background-color: #000; color: #000; font-style: italic; font-weight: bold;}
+
+/* Mozilla dosen't style place holders by default */
+input:-moz-placeholder { color:#a9a9a9; }
+textarea:-moz-placeholder { color:#a9a9a9; }
+
+// this method removes space under an image; also use display: block if no conflicts
+img {
+	display: block;
+}
+
+// Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/
+.cf:before, .cf:after { content: " "; display: table; }
+.cf:after { clear: both; }
+
+// type antialiasing
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+// // antialias for retina
+// // optional ; can be buggy
+// @media
+// only screen and (-webkit-min-device-pixel-ratio: 1.25),
+// only screen and ( min-device-pixel-ratio: 1.25),
+// only screen and ( min-resolution: 200dpi),
+// only screen and ( min-resolution: 1.25dppx)
+// {
+//     -webkit-font-smoothing: subpixel-antialiased;
+// }
+
+
+
+
+
+/*-------------------------------------------------------------------------------
+	Custom Styles for GSU Test API
+-------------------------------------------------------------------------------*/
+
+body {
+  color: #353740; /* dark gray */
+  font-family: "Helvetica",sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.5s ease-in-out;
+}
+
+.outer-wrap {
+  margin: 0 auto;
+  width: 1024px;
+}
+
+.inner-wrap {
+  margin: 0 auto;
+  width: 90%;
+}
+
+#header {
+  background: #0835a3; /* dark blue */
+  color: white;
+  padding: 14px 0 6px;
+  position: relative;
+  text-transform: uppercase;
+}
+
+#header:before {
+  background: #be0400; /* strong red */
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 75px;
+  z-index: 9;
+}
+
+#main-nav ul {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo.icon {
+  margin: -4px 13px 0;
+  position: relative;
+  z-index: 29;
+}
+
+.logo.icon img{
+  height: 50px;
+}
+
+.logo.name {
+  margin: 0 350px 0 20px;
+  width: 300px;
+}
+#main-nav li {
+  display: inline-block;
+  margin-left: 14px;
+  padding-bottom: 8px;
+}
+
+.nav-item a:hover {
+  color: #aeb9f1;  /* white with a purple tint */
+}
+
+h1 {
+  color: #aeaeb1; /* light gray */
+/*  color: #71717f;  medium gray with very slight purple tint */
+  font-size: 2em;
+  font-weight: 400;
+  margin: 60px 0 40px 0;
+  text-transform: uppercase;
+}
+
+
+/*-------------------------------------------------------------------------------
+	List View for Grant Requests
+-------------------------------------------------------------------------------*/
+
+.list {
+
+}
+
+.list li {
+  margin-left: 20px;
+}
+
+.list .request div {
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+  width: 204px;
+}
+
+.list .request div:after {
+  background: -webkit-linear-gradient(inear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,1) 80%););
+  background: -o-linear-gradient(inear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,1) 80%););
+  background: -moz-linear-gradient(inear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,1) 80%););
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,1) 80%);
+  content: '';
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80px;
+}
+
+.list .request div:last-of-type:after {
+  background: none;
+}
+
+.list .request div:first-of-type {
+  color: #f40707; /* bright red */
+}
+
+.list .request div:first-of-type a:hover {
+  color: #0835a3; /* dark blue */
+}
+  
+.list .request div:last-of-type {
+  cursor: pointer;
+  text-align: right;
+  width: 46px;
+}
+
+
+/*-------------------------------------------------------------------------------
+	Grant Request Application
+-------------------------------------------------------------------------------*/
+
+#form {
+  margin-left: 20px;
+  width: 640px;
+}
+
+#form li {
+  border-bottom: 1px solid #ccc; /* light gray */
+  position: relative;
+}
+
+#form li:first-of-type {
+  border-top: 1px solid #ccc; /* light gray */
+}
+
+#form li span {
+  display: inline-block;
+  font-size: 0.9em;
+  margin-right: 16px;
+  padding: 8px 0 8px 20px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 170px;
+}
+
+.clear-data {
+  background: inherit;
+  display: inline-block;
+  height: 30px;
+  vertical-align: middle;
+  width: 430px;
+}
+
+input[type='text'] {
+  border: 1px solid white;
+  transition: border 0.5s ease-in-out
+}
+
+input:focus {
+  border: 1px solid #ccc; /* light gray */
+  outline: none;
+}
+
+.button {
+  background: #f40707; /* bright red */
+  border: none;
+  color: white;
+  text-transform: uppercase;
+  transition: 0.5s all ease-in-out; 
+}
+
+.button.large {
+  font-size: 1.3em;
+  margin: 40px 0 0 20px;
+  padding: 8px 12px;
+}
+
+button.small {
+  font-size: 1.0em;
+  margin: 20px 0 30px 0;
+  padding: 8px 12px;
+  width: 152px;
+}
+
+.button:hover {
+  background: #0835a3;
+}
+
+
+/*-------------------------------------------------------------------------------
+	Home Page
+-------------------------------------------------------------------------------*/
+
+.hero {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 440px;
+  position: relative;
+}
+
+.hero:after {
+  background-image: url('/img/gsu-seal.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  content: '';
+  height: 200px;
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  top: 340px;
+  width: 200px;
+  z-index: 39;
+}
+
+.hero:before {
+  background: rgba(0,0,0,0.5);
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.headline-wrap {
+  margin: 0 auto;
+  position: relative;
+  width: 48%;
+}
+
+.headlines {
+  border: 1px solid white;
+  padding: 40px 40px 30px;
+  position: absolute;
+  top: 100px;
+}
+
+.headline {
+  color: white;
+  font-size: 2.0em;
+  font-weight: 400;
+  line-height: 1.0em;
+  margin-bottom: 14px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 200;
+}
+
+.headline.sub {
+  border: 1px solid rgba(255,255,255,0.3);
+  display: inline-block;
+  font-size: 1.3em;
+  margin-bottom: none;
+  padding: 8px;
+  text-transform: none;
+  width: 44%;
+  transition: 0.5s all ease-in-out
+}
+
+.headline:nth-of-type(2) {
+  margin-left: 2px;
+  margin-right: 0px;
+}
+
+.headline.sub:hover {
+  border: 1px solid rgba(255,255,255,0);
+  background: #0835a3;
+}
+
+
+/*-------------------------------------------------------------------------------
+	Start Here for Grant Request
+-------------------------------------------------------------------------------*/
+
+.option {
+  margin: 20px 0;
+  width: 80%;
+}
+
+.option p {
+  font-size: 1.2em;
+}

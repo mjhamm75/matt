@@ -2,31 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Grants</title>
+    <title>GSU Test API</title>
     <script src="jquery.js"></script>
+    <link rel="stylesheet" href="css/zasu.css" />
   </head>
   <body>
-    <a href="/index.html">Home</a>
-    <a href="/submission.html">Submission</a>
-    <a href="/submissions.html">Submissions</a>
-    <a href="/starthere.html">Start Here</a>
-    <a href="/application.html">Application</a>
-    <h1>Grant Submission Form</h1>
-    <div>
-      <div id="error-message"></div>
-      <div id="form">
-        Title: <input id="title" class="clear-data" type="text" name="title"><br>
-        PI: <input id="pi" class="clear-data" type="text" name="pi"><br>
-        College: <input id="college" class="clear-data" type="text" name="college"><br>
-        Dept: <input id="dept" class="clear-data" type="text" name="dept"><br>
-        ConferenceDate: <input id="conferencedate" class="clear-data" type="text" name="conferencedate"><br>
-        Location: <input id="location" class="clear-data" type="text" name="location"><br>
-        Purpose: <input id="purpose" class="clear-data" type="text" name="purpose"><br>
-        Amount: <input id="amount" class="clear-data" type="text" name="amount"><br>
-        Attendees: <input id="attendees" class="clear-data" type="text" name="attendees"><br>
-        <button id="button">Submit</button
+    <div class="outer-wrap">
+      <div class="inner-wrap">
+        <div id="header"></div>
+        <h1>Grant Request Application</h1>
+        <div id="error-message"></div>
+        <ul id="form">
+          <li><span>Title</span><input id="title" class="clear-data" type="text" name="title"></li>
+          <li><span>Principal Investigator</span><input id="pi" class="clear-data" type="text" name="pi"></li>
+          <li><span>College</span><input id="college" class="clear-data" type="text" name="college"></li>
+          <li><span>Department</span><input id="dept" class="clear-data" type="text" name="dept"></li>
+          <li><span>Conference Date</span><input id="conferencedate" class="clear-data" type="text" name="conferencedate"></li>
+          <li><span>Location</span><input id="location" class="clear-data" type="text" name="location"></li>
+          <li><span>Purpose</span><input id="purpose" class="clear-data" type="text" name="purpose"></li>
+          <li><span>Amount</span><input id="amount" class="clear-data" type="text" name="amount"></li>
+          <li><span>Attendees</span><input id="attendees" class="clear-data" type="text" name="attendees"></li>
+          <button id="button" class="button large">Submit</button
+        </ul>
       </div>
     </div>
-    <script src="application.js"></script>
+    <footer>
+      <script src="application.js"></script>
+      <script src="js/header.js"></script>
+      <script src="js/dimensionly-0.4c.js"></script>
+    </footer>
   </body>
 </html>

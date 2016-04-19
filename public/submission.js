@@ -1,13 +1,13 @@
 $.get('/grants')
   .done(function(res) {
     var grants = res.data.grants;
-    var ul = $('<ul></ul>');
+    var ul = $("<ul class='list'></ul>");
 
 
     grants.forEach(function(grant) {
       var viewApplication = $('<div>View</div>');
       var deleteApplication = $('<div>Delete</div>');
-      var li = $('<li id="' + grant.Id + '"></li>');
+      var li = $('<li id="' + grant.Id + '" class="request"></li>');
       var theId = $('<div>' + grant.Id + '</div>');
       var theTitle = $('<div>' + grant.Title + '</div>');
       var thePI = $('<div>' + grant.['PI'] + '</div>');
