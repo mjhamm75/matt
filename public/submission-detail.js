@@ -1,6 +1,6 @@
 var id = window.location.hash.substring(1);
 
-function updateGrant(grant) {
+function updateGrantView(grant) {
   var theDiv = $('<div></div>')
   var theId = $('<div>' + grant.Id + '</div>');
   var theTitle = $('<div>' + grant.Title + '</div>');
@@ -68,15 +68,18 @@ function updateGrant(grant) {
 
 $.get('/grants/' + id)
   .done(function(res) {
-    updateGrant(res.grant);
+    updateGrantView(res.grant);
   })
 
 
 $(document).on('click', '#update', function(e) {
-  $('', {
-    method: 'POST'
+  $('/grants', {
+    method: 'POST',
+    data: {
+
+    }
   })
   .done(function(res) {
-    updateGrant(res.grant);
+    updateGrantView(res.grant);
   });
 })
