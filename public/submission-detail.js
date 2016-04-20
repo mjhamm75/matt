@@ -1,37 +1,37 @@
 var grantId = window.location.hash.substring(1);
 
 function updateGrantView(grant) {
-    var detailDiv = $('<div></div>')
-    var id = $('<div>' + grant.Id + '</div>');
-    var title = $('<div>' + grant.Title + '</div>');
-    var pI = $('<div>' + grant['PI'] + '</div>');
-    var college = $('<div>' + grant.College + '</div>');
-    var dept = $('<div>' + grant.Dept + '</div>');
-    var conferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
-    var location = $('<div>' + grant.Location + '</div>');
-    var purpose = $('<div>' + grant.Purpose + '</div>');
-    var amount = $('<div>' + grant.Amount + '</div>');
-    var attendees = $('<div>' + grant.Attendees + '</div>');
-    var submissionStatus = $('<div>' + grant.SubmissionStatus + '</div>');
-    var custom1 = $('<div>' + grant.Custom1 + '</div>');
-    var custom2 = $('<div>' + grant.Custom2 + '</div>');
-    var custom3 = $('<div>' + grant.Custom3 + '</div>');
-    detailDiv.append(id)
-        .append(title)
-        .append(pI)
-        .append(college)
-        .append(dept)
-        .append(conferenceDate)
-        .append(location)
-        .append(purpose)
-        .append(amount)
-        .append(attendees)
-        .append(submissionStatus)
-        .append(custom1)
-        .append(custom2)
-        .append(custom3);
+//    var detailDiv = $('<div class="details"></div>')
+//    var id = $('<div>' + grant.Id + '</div>');
+//    var title = $('<div>' + grant.Title + '</div>');
+//    var pI = $('<div>' + grant['PI'] + '</div>');
+//    var college = $('<div>' + grant.College + '</div>');
+//    var dept = $('<div>' + grant.Dept + '</div>');
+//    var conferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
+//    var location = $('<div>' + grant.Location + '</div>');
+//    var purpose = $('<div>' + grant.Purpose + '</div>');
+//    var amount = $('<div>' + grant.Amount + '</div>');
+//    var attendees = $('<div>' + grant.Attendees + '</div>');
+//    var submissionStatus = $('<div>' + grant.SubmissionStatus + '</div>');
+//    var custom1 = $('<div>' + grant.Custom1 + '</div>');
+//    var custom2 = $('<div>' + grant.Custom2 + '</div>');
+//    var custom3 = $('<div>' + grant.Custom3 + '</div>');
+//    detailDiv.append(id)
+//        .append(title)
+//        .append(pI)
+//        .append(college)
+//        .append(dept)
+//        .append(conferenceDate)
+//        .append(location)
+//        .append(purpose)
+//        .append(amount)
+//        .append(attendees)
+//        .append(submissionStatus)
+//        .append(custom1)
+//        .append(custom2)
+//        .append(custom3);
 
-    var inputDiv = $('<div></div>');
+    var inputDiv = $('<div class="edits"></div>');
     var inputId = $('<input />').val(grant.Id);
     var inputTitle = $('<input />').val(grant.Title);
     var inputPI = $('<input />').val(grant['PI']);
@@ -62,7 +62,7 @@ function updateGrantView(grant) {
         .append(inputCustom3);
 
 
-    $('#detail-view').append(detailDiv);
+//    $('#detail-view').append(detailDiv);  // inactive until I figure out how to do this with one view.
     $('#edit-view').append(inputDiv);
 
     $(document).on('click', '#update', function(e) {
@@ -86,7 +86,8 @@ function updateGrantView(grant) {
                 }
             })
             .done(function(res) {
-                updateGrantView(res.grant);
+          alert('This record has been updated.')
+//                updateGrantView(res.grant);
             })
             .error(function(err) {
                 alert('Something is not right');
