@@ -66,7 +66,7 @@ function updateGrantView(grant) {
     $('#edit-view').append(inputDiv);
 
     $(document).on('click', '#update', function(e) {
-        $.ajax('http://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
+        $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
                 method: 'PUT',
                 data: {
                     "Id": inputId.val(),
@@ -95,9 +95,9 @@ function updateGrantView(grant) {
     });
 }
 
-var GRANT_URL = 'http://internalgrantdev.azurewebsites.net/api/MGrants/';
+var GRANT_URL = 'https://internalgrantdev.azurewebsites.net/api/MGrants/';
 
 $.get(GRANT_URL + grantId)
     .done(function(res) {
-        updateGrantView(res.grant);
+        updateGrantView(res);
     })
