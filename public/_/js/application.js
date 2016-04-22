@@ -27,7 +27,7 @@ $('#button').click(function(e) {
       "Purpose" : purpose,
       "Amount" : amount,
       "Attendees" : attendees,
-      "SubmissionStatus" : submissionStatus,
+      "SubmissionStatus" : 'pending',
       "Custom1" : null,
       "Custom2" : null,
       "Custom3" : null
@@ -56,8 +56,6 @@ $('#save').click(function(e) {
   var purpose = document.getElementById('purpose').value;
   var amount = document.getElementById('amount').value;
   var attendees = document.getElementById('attendees').value;
-//  var submissionStatus = 'draft';
-//  var draft = 'draft';
 
   var GRANT_URL = 'http://internalgrantdev.azurewebsites.net/api/MGrants';
 

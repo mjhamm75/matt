@@ -4,6 +4,8 @@ $.get('/grants')
     var ul = $("<ul class='list'></ul>");
 
     grants.forEach(function(grant) {
+      
+      
       var url = "submission-detail.html#" + grant.Id;
       var viewApplication = $('<a href="' + url +'" id="view">View</a>');
       var deleteApplication = $('<div><a href="#">Delete</a></div>');
@@ -11,33 +13,36 @@ $.get('/grants')
 //        $("#detail-view").load("/grants/" + grant.Id);
 //      });      
       var li = $('<li id="' + grant.Id + '" class="request"></li>');
-      var Id = $('<div>' + grant.Id + '</div>');
+      var id = $('<div>' + grant.Id + '</div>');
 //      var Title = $('<div>' + grant.Title + '</div>');
-      var Title = $('<div><a href="' + url +'" id="view">' + grant.Title + '</a></div>');
-      var PI = $('<div>' + grant['PI'] + '</div>');
-      var College = $('<div>' + grant.College + '</div>');
-      var Dept = $('<div>' + grant.Dept + '</div>');
-      var ConferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
-      var Location = $('<div>' + grant.Location + '</div>');
-      var Purpose = $('<div>' + grant.Purpose + '</div>');
-      var Amount = $('<div>' + grant.Amount + '</div>');
-      var Attendees = $('<div>' + grant.Attendees + '</div>');
-      var SubmissionStatus = $('<div>' + grant.SubmissionStatus + '</div>');
-      var Custom1 = $('<div>' + grant.Custom1 + '</div>');
-      var Custom2 = $('<div>' + grant.Custom2 + '</div>');
-      var Custom3 = $('<div>' + grant.Custom3 + '</div>');
+      var title = $('<div><a href="' + url +'" id="view">' + grant.Title + '</a></div>');
+      var pi = $('<div>' + grant['PI'] + '</div>');
+      var college = $('<div>' + grant.College + '</div>');
+      var dept = $('<div>' + grant.Dept + '</div>');
+      var conferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
+      var location = $('<div>' + grant.Location + '</div>');
+      var purpose = $('<div>' + grant.Purpose + '</div>');
+      var amount = $('<div>' + grant.Amount + '</div>');
+      var attendees = $('<div>' + grant.Attendees + '</div>');
+      var submissionStatus = $('<div>' + grant.SubmissionStatus + '</div>');
+      var custom1 = $('<div>' + grant.Custom1 + '</div>');
+      var custom2 = $('<div>' + grant.Custom2 + '</div>');
+      var custom3 = $('<div>' + grant.Custom3 + '</div>');
       
-          //      li.append(Id)
-        li.append(Title)
-          .append(PI)
-          .append(College)
+      var notice = 'There are no drafts available.'
+      
+      if(grant.SubmissionStatus == 'draft') {
+                  //      li.append(Id)
+        li.append(title)
+          .append(pi)
+          .append(college)
   //        .append(Dept)
-          .append(ConferenceDate)
+          .append(conferenceDate)
   //        .append(Location)
   //        .append(Purpose)
   //        .append(Amount)
   //        .append(Attendees)
-          .append(SubmissionStatus)
+          .append(submissionStatus)
   //        .append(Custom1)
   //        .append(Custom2)
   //        .append(Custom3)
@@ -45,8 +50,11 @@ $.get('/grants')
           .append(deleteApplication);
       
         ul.append(li);
+      }
       
-      Title.on('click', function() {
+      // pota ADD MESSAGE IF THERE ARE NO DRAFTS (ADDING IT HERE THOUGH IS WITHIN A LOOP SO YOU'LL GET MULTIPLE MESSAGES)
+      
+      title.on('click', function() {
         $("#detail-view").load("/grants/" + grant.Id);
       });
       deleteApplication.on('click', function(e) {
@@ -59,11 +67,5 @@ $.get('/grants')
         });
       });
     });
-    if(grant.SubmissionStatus == 'draft') {
       $('#list-view').append(ul);
-    }
   });
-
-
-// I want this to return only the applications that have been marked as 'draft'. The IF code block
-// beginning on Line 62 does not find any because at that point, SubmissionStatus is no longer defind.
