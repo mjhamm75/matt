@@ -6,6 +6,25 @@ $('#edit').click(function() {
   $('#update').addClass('active');
 });
 
+$('#approve').click(function() {
+  $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
+        method: 'PUT',
+        data: {
+          "SubmissionStatus": 'Approved'
+        }
+    })
+    .done(function(res) {
+      alert('approved!');
+    })
+    .error(function(err) {
+      alert('Something is not right');
+    });
+});
+
+$('#reject').click(function() {
+  alert('rejected!');
+});
+
 function updateGrantView(grant) {
     var inputDiv = $('<div class="edits"></div>');
     var inputId = $('<input disabled/>').val(grant.Id);
@@ -32,10 +51,10 @@ function updateGrantView(grant) {
         .append(inputPurpose)
         .append(inputAmount)
         .append(inputAttendees)
-        .append(inputSubmissionStatus)
-        .append(inputCustom1)
-        .append(inputCustom2)
-        .append(inputCustom3);
+        .append(inputSubmissionStatus);
+//        .append(inputCustom1)
+//        .append(inputCustom2)
+//        .append(inputCustom3);
 
     $('#edit-view').append(inputDiv);
 

@@ -80,6 +80,10 @@ body {
   text-align: center;
 }
 
+#list-view {
+  margin: 26px 0;
+}
+
 
 
 /*-------------------------------------------------------------------------------
@@ -293,6 +297,14 @@ a {
     padding: 8px 12px;
     width: 152px;
   }
+  &.tiny {
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: 700;
+    margin: 16px 0 20px;
+    padding: 8px 12px;
+    width: 80px;
+  }
   &:hover {
     background: $blue;
   }
@@ -301,14 +313,14 @@ a {
 #edit {
   display: none;
   &.active {
-    display: block;
+    display: inline-block;
   }
 }
 
 #update {
   display: none;
   &.active {
-    display: block;
+    display: inline-block;
   }
 }
 
@@ -401,22 +413,39 @@ input {  // detail view page and the application page for some
 .request {
   border-bottom: 1px solid $gray30;
   margin-bottom: 20px;
-  padding: 12px 18px;
+  padding: 6px 18px;
   &:first-of-type {
     border-top: 1px solid $gray30;
   }
-//  text-align: center;
+  .list & {
+    .page-continue & {
+      margin-bottom: 0;
+    }
+  }
 }
 
 div {
   .request & {
-    margin-bottom: 6px;
-    &:first-of-type {
-      font-size: 1.5em;
-      line-height: 1.3em;
-    }
-    &:nth-of-type(2) {
-      text-transform: uppercase;
+    .list & {
+      .page-submissions & {
+        margin-bottom: 6px;
+        &:first-of-type {
+          font-size: 1.5em;
+          line-height: 1.3em;
+        }
+        &:nth-of-type(2) {
+          text-transform: uppercase;
+        }
+      }
+      .page-continue & {
+        margin-bottom: 6px;
+        &:first-of-type {
+          text-transform: uppercase;
+        }
+        &:nth-of-type(2) {
+
+        }
+      }
     }
   }
 }

@@ -32,22 +32,22 @@ $.get('/grants')
       var notice = 'There are no drafts available.'
       
       if(grant.SubmissionStatus == 'draft') {
-                  //      li.append(Id)
+                  //      li.append(id)
         li.append(title)
           .append(pi)
-          .append(college)
+//          .append(college)
   //        .append(Dept)
-          .append(conferenceDate)
+//          .append(conferenceDate)
   //        .append(Location)
   //        .append(Purpose)
   //        .append(Amount)
   //        .append(Attendees)
-          .append(submissionStatus)
+//          .append(submissionStatus)
   //        .append(Custom1)
   //        .append(Custom2)
   //        .append(Custom3)
   //        .append(viewApplication)
-          .append(deleteApplication);
+//          .append(deleteApplication);
       
         ul.append(li);
       }

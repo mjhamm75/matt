@@ -284,6 +284,9 @@ body {
 .button-wrap {
   text-align: center; }
 
+#list-view {
+  margin: 26px 0; }
+
 /*-------------------------------------------------------------------------------
   Images and Graphics
 -------------------------------------------------------------------------------*/
@@ -456,18 +459,25 @@ a {
     margin: 16px 0 20px;
     padding: 8px 12px;
     width: 152px; }
+  .button.tiny {
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: 700;
+    margin: 16px 0 20px;
+    padding: 8px 12px;
+    width: 80px; }
   .button:hover {
     background: #0835a3; }
 
 #edit {
   display: none; }
   #edit.active {
-    display: block; }
+    display: inline-block; }
 
 #update {
   display: none; }
   #update.active {
-    display: block; }
+    display: inline-block; }
 
 /*-------------------------------------------------------------------------------
   Forms and Inputs
@@ -502,16 +512,22 @@ input {
 .request {
   border-bottom: 1px solid #aeaeb1;
   margin-bottom: 20px;
-  padding: 12px 18px; }
+  padding: 6px 18px; }
   .request:first-of-type {
     border-top: 1px solid #aeaeb1; }
+  .page-continue .list .request {
+    margin-bottom: 0; }
 
-.request div {
+.page-submissions .list .request div {
   margin-bottom: 6px; }
-  .request div:first-of-type {
+  .page-submissions .list .request div:first-of-type {
     font-size: 1.5em;
     line-height: 1.3em; }
-  .request div:nth-of-type(2) {
+  .page-submissions .list .request div:nth-of-type(2) {
+    text-transform: uppercase; }
+.page-continue .list .request div {
+  margin-bottom: 6px; }
+  .page-continue .list .request div:first-of-type {
     text-transform: uppercase; }
 
 /*-------------------------------------------------------------------------------
