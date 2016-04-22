@@ -35,8 +35,8 @@ $('#button').click(function(e) {
   })
   .done(function (result) {
     $('.clear-data').val('');
-    alert('Thank you for submitting your request.')
-    // window.location.href('http://elliotts-macbook-air.local:5757/success.html');  // pota REDIRECT
+    var win = window.open(url, '_blank');
+    win.focus();
   })
   .error(function(err) {
     alert('Something is not right');
