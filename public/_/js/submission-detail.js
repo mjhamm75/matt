@@ -1,38 +1,14 @@
 var grantId = window.location.hash.substring(1);
 
-function updateGrantView(grant) {
-//    var detailDiv = $('<div class="details"></div>')
-//    var id = $('<div>' + grant.Id + '</div>');
-//    var title = $('<div>' + grant.Title + '</div>');
-//    var pI = $('<div>' + grant['PI'] + '</div>');
-//    var college = $('<div>' + grant.College + '</div>');
-//    var dept = $('<div>' + grant.Dept + '</div>');
-//    var conferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
-//    var location = $('<div>' + grant.Location + '</div>');
-//    var purpose = $('<div>' + grant.Purpose + '</div>');
-//    var amount = $('<div>' + grant.Amount + '</div>');
-//    var attendees = $('<div>' + grant.Attendees + '</div>');
-//    var submissionStatus = $('<div>' + grant.SubmissionStatus + '</div>');
-//    var custom1 = $('<div>' + grant.Custom1 + '</div>');
-//    var custom2 = $('<div>' + grant.Custom2 + '</div>');
-//    var custom3 = $('<div>' + grant.Custom3 + '</div>');
-//    detailDiv.append(id)
-//        .append(title)
-//        .append(pI)
-//        .append(college)
-//        .append(dept)
-//        .append(conferenceDate)
-//        .append(location)
-//        .append(purpose)
-//        .append(amount)
-//        .append(attendees)
-//        .append(submissionStatus)
-//        .append(custom1)
-//        .append(custom2)
-//        .append(custom3);
+$('#edit').click(function() {
+  $('.detail-view').removeClass('active');
+  $(this).removeClass('active');
+  $('#update').addClass('active');
+});
 
+function updateGrantView(grant) {
     var inputDiv = $('<div class="edits"></div>');
-    var inputId = $('<input />').val(grant.Id);
+    var inputId = $('<input disabled/>').val(grant.Id);
     var inputTitle = $('<input />').val(grant.Title);
     var inputPI = $('<input />').val(grant['PI']);
     var inputCollege = $('<input />').val(grant.College);
@@ -61,11 +37,12 @@ function updateGrantView(grant) {
         .append(inputCustom2)
         .append(inputCustom3);
 
-
-//    $('#detail-view').append(detailDiv);  // inactive until I figure out how to do this with one view.
     $('#edit-view').append(inputDiv);
 
     $(document).on('click', '#update', function(e) {
+      $('.detail-view').addClass('active');
+      $(this).removeClass('active');
+      $('#edit').addClass('active');
         $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
                 method: 'PUT',
                 data: {

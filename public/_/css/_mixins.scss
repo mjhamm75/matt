@@ -1,0 +1,80 @@
+//
+// TABLE OF CONTENTS
+//
+// Animate Transitions
+// Box Shadow
+// Rotate
+// Scale
+// Border Radius
+// Key Frames
+//
+
+@mixin responsive($size) {
+	@if $size == hoover { @media only screen and (min-width: $hoover) { @content; } }
+    @else if $size == roosevelt { @media only screen and (min-width: $roosevelt) { @content; } }
+	@else if $size == truman { @media only screen and (min-width: $truman) { @content; } }
+    @else if $size == barkley { @media only screen and (min-width: $barkley) { @content; } }
+	@else if $size == eisenhower { @media only screen and (min-width: $eisenhower) { @content; } }
+	@else if $size == kennedy { @media only screen and (min-width: $kennedy) { @content; } }
+	@else if $size == johnson { @media only screen and (min-width: $johnson) { @content; } }
+	@else if $size == nixon { @media only screen and (min-width: $nixon) { @content; } }
+	@else if $size == ford { @media only screen and (min-width: $ford) { @content; } }
+	@else if $size == carter { @media only screen and (min-width: $carter) { @content; } }
+	@else if $size == reagan { @media only screen and (min-width: $reagan) { @content; } }
+	@else if $size == hbush { @media only screen and (min-width: $hbush) { @content; } }
+	@else if $size == clinton { @media only screen and (min-width: $clinton) { @content; } }
+	@else if $size == wbush { @media only screen and (min-width: $wbush) { @content; } }
+	@else if $size == obama { @media only screen and (min-width: $obama) { @content; } }
+}
+
+
+
+// Animate Transitions
+@mixin transition($time) {
+	-webkit-transition: all $time ease;
+	-moz-transition: all $time ease;
+	-ms-transition: all $time ease;
+	-o-transition: all $time ease;
+	transition: all $time ease;
+}
+
+// Transition for a specific property
+@mixin transition-property($property, $time) {
+	-webkit-transition: $property $time ease;
+	-moz-transition: $property $time ease;
+	-ms-transition: $property $time ease;
+	-o-transition: $property $time ease;
+	transition: $property $time ease;
+}
+
+
+// Box Shadow
+@mixin box-shadow($horiz, $vert, $blur, $spread, $color-transparency) {
+	-webkit-box-shadow: $horiz $vert $blur $spread $color-transparency;
+	-moz-box-shadow: $horiz $vert $blur $spread $color-transparency;
+	box-shadow: $horiz $vert $blur $spread $color-transparency;
+}
+
+
+
+// rotate
+@mixin rotate($deg) {
+     -webkit-transform:rotate($deg);
+     -ms-transform:rotate($deg);
+     transform:rotate($deg);
+}
+
+// scale
+@mixin scale($x,$y) {
+    -ms-transform: scale($x,$y);
+    -webkit-transform: scale($x,$y);
+    transform: scale($x,$y);
+}
+
+// border radius (same all corners)
+
+@mixin border-radius($radius) {
+     -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+     border-radius: $radius;
+}

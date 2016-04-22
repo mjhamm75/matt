@@ -1,0 +1,1 @@
+$("#footer").load("_/inc/footer.html");

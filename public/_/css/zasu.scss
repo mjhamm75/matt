@@ -1,0 +1,437 @@
+/*-------------------------------------------------------------------------------
+  Imports
+-------------------------------------------------------------------------------*/
+
+@import 'variables';
+@import 'reset';
+@import 'mixins';
+
+
+/*-------------------------------------------------------------------------------
+  Basic Elements
+-------------------------------------------------------------------------------*/
+
+a {
+  color: inherit;
+  text-decoration: none;
+  @include transition($speedy * 2);
+  &.blocked {
+    display: block;
+    height: 100%;
+  }
+  .nav-item & {
+    &:hover {
+      color: $white-purple
+    }
+  }  
+}
+
+body {
+  color: $gray60;
+  font-family: $fontSans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+h1 {
+  color: $gray30;
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1.2em;
+  margin: 60px 0 40px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+h3 {
+  color: $red60;
+  font-size: 1.4em;
+  margin: 36px 0 16px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+li {
+  #form & {
+//    border-bottom: 1px solid $gray20;
+    position: relative;
+    width: 100%;
+    &:first-of-type {
+//      border-top: 1px solid $gray20;
+    }
+  }
+}
+
+p {
+  .option & {
+    font-size: 1.2em;
+  }
+}
+
+p + P {
+  margin-top: 12px;
+}
+
+span {
+  li & {
+    #form & {
+      display: none;  // hide on mobile
+      font-size: 0.9em;
+      margin-right: 16px;
+      padding: 8px 0 2px; 
+      text-transform: uppercase;
+      vertical-align: middle;
+      width: 170px;
+    }
+  }
+}
+
+ul {
+
+}
+
+
+
+/*-------------------------------------------------------------------------------
+  Wraps
+-------------------------------------------------------------------------------*/
+
+.outer-wrap {
+  overflow: hidden;
+  width: 100%;
+}
+
+.inner-wrap {
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  width: 90%;
+}
+
+.nav-wrap {
+
+}
+
+.headline-wrap {
+  height: 100%;
+  position: relative;
+}
+
+.detail-edit-wrap {
+  position: relative;  
+}
+
+.detail-view {  // disables editing a request
+  position: relative;
+  &:before {
+    background: none;
+  }
+  &.active:before {
+    background: rgba(255,255,255,0);
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    @include transition($speedy * 2);
+  }
+}
+
+.footer-wrap {
+  background: $blue;
+  height: 50px;
+  margin-top: 50px;
+}
+
+
+/*-------------------------------------------------------------------------------
+  Main Nav
+-------------------------------------------------------------------------------*/
+
+#header {
+  background: $blue;
+  color: white;
+  text-transform: uppercase;
+}
+
+
+
+
+/*-------------------------------------------------------------------------------
+  Images and Graphics
+-------------------------------------------------------------------------------*/
+
+.nav {
+  display: inline-block;
+  padding: 10px;
+  &.icon {
+    background: $red60;
+    margin-bottom: -5px;
+    img {
+      height: 40px;
+    }
+  }
+  &.logo {
+    margin-bottom: -5px;
+    width: 78%;
+  }
+  &.item {  // nav items are hidden for mobile
+    display: none;
+  }
+}
+
+
+.hero {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 440px;
+  position: relative;
+  &:after {  // GSU Seal
+    background-image: url('/_/img/gsu-seal-half.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    height: 200px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 340px;
+    width: 200px;
+    z-index: 39;
+  }
+  &:before {  // dark overlay
+    background: rgba(0,0,0,0.5);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+//    z-index: 1;
+  }
+}
+
+
+/*-------------------------------------------------------------------------------
+  Text
+-------------------------------------------------------------------------------*/
+
+.headlines {
+  border: 1px solid white;
+  left: 0;
+  padding: 40px 14px 30px;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-30%);
+}
+
+.headline {
+  color: white;
+  font-size: 2.0em;
+  font-weight: 400;
+  line-height: 1.0em;
+  margin-bottom: 14px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  &:nth-of-type(2) {
+    margin-left: calc(4% - 5px);
+    margin-right: calc(8% - 5px);
+  }
+  &.sub {
+    border: 1px solid rgba(255,255,255,0.5);
+    display: inline-block;
+    font-size: 1.3em;
+    line-height: 1.1em;
+    margin-bottom: none;
+    padding: 8px;
+    text-transform: none;
+    width: 44%;
+    @include transition($speedy * 2);
+    &:hover {
+      border: 1px solid rgba(255,255,255,0);
+      background: $blue;
+    }
+  }
+}
+
+.copy {
+  &.little {
+    text-align: center;
+  }
+}
+.option {
+  margin-top: 30px;
+  padding: 0 14px;
+}
+
+
+/*-------------------------------------------------------------------------------
+  Buttons
+-------------------------------------------------------------------------------*/
+
+.button-wrap {
+  text-align: center;
+}
+
+.button {
+  background: $red40;
+  border: none;
+  color: white;
+  display: inline-block;
+  text-transform: uppercase;
+  @include transition($speedy *2);
+  &.large {
+    font-size: 1.3em;
+    margin: 40px auto 0;
+    padding: 8px 12px;
+    width: 96px;
+  }
+  &.small {
+    font-size: 1.0em;
+    margin: 16px 0 20px;
+    padding: 8px 12px;
+    width: 152px;
+  }
+  &:hover {
+    background: $blue;
+  }
+}
+
+#edit {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+#update {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
+
+/*-------------------------------------------------------------------------------
+  Inputs
+-------------------------------------------------------------------------------*/
+
+input[type='text'] {  // the application page
+//  border: 1px solid white;  // hides the border that inputs have by default
+  @include transition($speedy * 2)
+}
+
+input:focus {
+  border: 1px solid $gray20;
+  outline: none;
+}
+
+input {  // detail view page and the application page for some
+  color: $gray60;  //
+  padding: 8px 0 8px 14px;
+  margin: 4px 0;  //
+  width: 100%;
+}
+
+
+
+/*-------------------------------------------------------------------------------
+  Forms
+-------------------------------------------------------------------------------*/
+
+#form {
+
+}
+
+.clear-data {
+  display: inline-block;
+  height: 30px;
+  padding-left: 14px;
+  vertical-align: middle;
+  width: 100%;
+}
+  
+
+/*-------------------------------------------------------------------------------
+  List View
+-------------------------------------------------------------------------------*/
+
+//div {
+//  .request & {
+//    .list & {
+//      display: inline-block;
+//      overflow: hidden;
+//      position: relative;
+//      white-space: nowrap;
+//      width: 204px;
+//      &:after {
+//        background: -webkit-linear-gradient(inear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,1) 80%));
+//        background: -o-linear-gradient(inear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,1) 80%));
+//        background: -moz-linear-gradient(inear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,1) 80%));
+//        background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 40%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,1) 80%);
+//        content: '';
+//        height: 100%;
+//        position: absolute;
+//        right: 0;
+//        top: 0;
+//        width: 80px;
+//      }
+//      &:first-of-type {
+//        color: $gray60;
+//        @include transition($speedy * 2);
+//      }
+//      &:first-of-type:hover a {
+//        color: $blue;
+//      }
+//      &:last-of-type {
+//        cursor: pointer;
+//        text-align: right;
+//        width: 46px;
+//        transition: 0.3s all ease-in-out;
+//      }
+//      &:last-of-type:hover {
+//        color: $red40;
+//      }
+//      &:last-of-type:after {
+//        background: none;  // removes gradient from 'Delete' since it doesn't apply
+//      }
+//    }
+//  }
+//}
+
+
+
+.request {
+  border-bottom: 1px solid $gray30;
+  margin-bottom: 20px;
+  padding: 12px 18px;
+  &:first-of-type {
+    border-top: 1px solid $gray30;
+  }
+//  text-align: center;
+}
+
+div {
+  .request & {
+    margin-bottom: 6px;
+    &:first-of-type {
+      font-size: 1.5em;
+      line-height: 1.3em;
+    }
+    &:nth-of-type(2) {
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+/*-------------------------------------------------------------------------------
+  Detail View
+-------------------------------------------------------------------------------*/
+

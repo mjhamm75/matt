@@ -3,33 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>GSU Test API</title>
-    <script src="jquery.js"></script>
-    <link rel="stylesheet" href="css/zasu.css" />
+    <script src="_/js/jquery.js"></script>
+    <link rel="stylesheet" href="_/css/zasu.css" />
   </head>
   
   <body>
     <div class="outer-wrap">
+      <div id="header"></div>
       <div class="inner-wrap">
-        <div id="header"></div>
-        <h1>Grant Request :  Detail View</h1>
-        <div class="detail-edit-wrap">
-<!--          <div id="detail-view"></div>-->
-          <div id="edit-view"></div>
+        <h1>Request Detail</h1>
+        <div id="detail-edit-wrap"></div>
+          <div class="detail-view active">
+            <div id="edit-view"></div>
+          </div>
         </div>
-        <button id="edit" class="button small">Edit</button>
+        <button id="edit" class="button small active">Edit</button>
         <button id="update" class="button small">Update</button>
         <button id="approve" class="button small">Approve</button>
         <button id="reject" class="button small">Reject</button>
         <button id="pending" class="button small">Pending</button>
       </div>
     </div>
-
+    <div id="footer"></div>
   </body>
   
   <footer>
-    <script src="submission-detail.js"></script>
-    <script src="js/header.js"></script>
-    <script src="js/dimensionly-0.4c.js"></script>
+    <script src="_/js/header.js"></script>
+    <script src="_/js/submission-detail.js"></script>
   </footer>
   
 </html>

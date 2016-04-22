@@ -1,0 +1,525 @@
+/*-------------------------------------------------------------------------------
+  Imports
+-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------
+  Colors
+-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------
+  Fonts
+-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------
+  Animations
+-------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------
+  Responsive
+-------------------------------------------------------------------------------*/
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+
+	Eric Meyer					:: http://meyerweb.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+
+-------------------------------------------------------------------------------*/
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+article, aside, figure, footer, header, nav, section, details, summary {
+  display: block; }
+
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img,
+object,
+embed {
+  max-width: 100%; }
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll; }
+
+/* we use a lot of ULs that aren't bulleted.
+	don't forget to restore the bullets within content. */
+ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help; }
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+th {
+  font-weight: bold;
+  vertical-align: bottom; }
+
+td {
+  font-weight: normal;
+  vertical-align: top; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */ }
+
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom; }
+
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline; }
+
+select, input, textarea {
+  font: 99% sans-serif; }
+
+table {
+  font-size: inherit;
+  font: 100%; }
+
+small {
+  font-size: 85%; }
+
+strong {
+  font-weight: bold; }
+
+td, td img {
+  vertical-align: top; }
+
+/* Make sure sup and sub don't screw with your line-heights
+	gist.github.com/413930 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif; }
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0; }
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {
+  width: auto;
+  overflow: visible; }
+
+/* scale images in IE7 more attractively */
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+/* Custom text-selection colors (remove any text shadows: http://twitter.com/miketaylr/status/12228805301) */
+::-moz-selection {
+  background: #f26522;
+  color: #ffffff;
+  text-shadow: none; }
+
+::selection {
+  background: #f26522;
+  color: #ffffff;
+  text-shadow: none; }
+
+/*	j.mp/webkit-tap-highlight-color */
+a:link {
+  -webkit-tap-highlight-color: transparent; }
+
+ins {
+  background-color: #000;
+  color: #000;
+  text-decoration: none; }
+
+mark {
+  background-color: #000;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+/* Mozilla dosen't style place holders by default */
+input:-moz-placeholder {
+  color: #a9a9a9; }
+
+textarea:-moz-placeholder {
+  color: #a9a9a9; }
+
+img {
+  display: block; }
+
+.cf:before, .cf:after {
+  content: " ";
+  display: table; }
+
+.cf:after {
+  clear: both; }
+
+html {
+  -webkit-font-smoothing: antialiased; }
+
+/*-------------------------------------------------------------------------------
+  Basic Elements
+-------------------------------------------------------------------------------*/
+a {
+  color: inherit;
+  text-decoration: none;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  a.blocked {
+    display: block;
+    height: 100%; }
+  .nav-item a:hover {
+    color: #aeb9f1; }
+
+body {
+  color: #353740;
+  font-family: "Helvetica", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px; }
+
+h1 {
+  color: #aeaeb1;
+  font-size: 2em;
+  font-weight: 400;
+  line-height: 1.2em;
+  margin: 60px 0 40px 0;
+  text-align: center;
+  text-transform: uppercase; }
+
+h3 {
+  color: #be0400;
+  font-size: 1.4em;
+  margin: 36px 0 16px;
+  text-align: center;
+  text-transform: uppercase; }
+
+#form li {
+  position: relative;
+  width: 100%; }
+
+.option p {
+  font-size: 1.2em; }
+
+p + P {
+  margin-top: 12px; }
+
+#form li span {
+  display: none;
+  font-size: 0.9em;
+  margin-right: 16px;
+  padding: 8px 0 2px;
+  text-transform: uppercase;
+  vertical-align: middle;
+  width: 170px; }
+
+/*-------------------------------------------------------------------------------
+  Wraps
+-------------------------------------------------------------------------------*/
+.outer-wrap {
+  overflow: hidden;
+  width: 100%; }
+
+.inner-wrap {
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  width: 90%; }
+
+.headline-wrap {
+  height: 100%;
+  position: relative; }
+
+.detail-edit-wrap {
+  position: relative; }
+
+.detail-view {
+  position: relative; }
+  .detail-view:before {
+    background: none; }
+  .detail-view.active:before {
+    background: rgba(255, 255, 255, 0);
+    content: '';
+    height: 100%;
+    left: 0;
+    opacity: 1;
+    position: absolute;
+    width: 100%;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
+
+.footer-wrap {
+  background: #0835a3;
+  height: 50px;
+  margin-top: 50px; }
+
+/*-------------------------------------------------------------------------------
+  Main Nav
+-------------------------------------------------------------------------------*/
+#header {
+  background: #0835a3;
+  color: white;
+  text-transform: uppercase; }
+
+/*-------------------------------------------------------------------------------
+  Images and Graphics
+-------------------------------------------------------------------------------*/
+.nav {
+  display: inline-block;
+  padding: 10px; }
+  .nav.icon {
+    background: #be0400;
+    margin-bottom: -5px; }
+    .nav.icon img {
+      height: 40px; }
+  .nav.logo {
+    margin-bottom: -5px;
+    width: 78%; }
+  .nav.item {
+    display: none; }
+
+.hero {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 440px;
+  position: relative; }
+  .hero:after {
+    background-image: url("/_/img/gsu-seal-half.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    height: 200px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 340px;
+    width: 200px;
+    z-index: 39; }
+  .hero:before {
+    background: rgba(0, 0, 0, 0.5);
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%; }
+
+/*-------------------------------------------------------------------------------
+  Text
+-------------------------------------------------------------------------------*/
+.headlines {
+  border: 1px solid white;
+  left: 0;
+  padding: 40px 14px 30px;
+  position: absolute;
+  top: 30%;
+  transform: translateY(-30%); }
+
+.headline {
+  color: white;
+  font-size: 2.0em;
+  font-weight: 400;
+  line-height: 1.0em;
+  margin-bottom: 14px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase; }
+  .headline:nth-of-type(2) {
+    margin-left: calc(4% - 5px);
+    margin-right: calc(8% - 5px); }
+  .headline.sub {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    display: inline-block;
+    font-size: 1.3em;
+    line-height: 1.1em;
+    margin-bottom: none;
+    padding: 8px;
+    text-transform: none;
+    width: 44%;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
+    .headline.sub:hover {
+      border: 1px solid rgba(255, 255, 255, 0);
+      background: #0835a3; }
+
+.copy.little {
+  text-align: center; }
+
+.option {
+  margin-top: 30px;
+  padding: 0 14px; }
+
+/*-------------------------------------------------------------------------------
+  Buttons
+-------------------------------------------------------------------------------*/
+.button-wrap {
+  text-align: center; }
+
+.button {
+  background: #f40707;
+  border: none;
+  color: white;
+  display: inline-block;
+  text-transform: uppercase;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+  .button.large {
+    font-size: 1.3em;
+    margin: 40px auto 0;
+    padding: 8px 12px;
+    width: 96px; }
+  .button.small {
+    font-size: 1.0em;
+    margin: 16px 0 20px;
+    padding: 8px 12px;
+    width: 152px; }
+  .button:hover {
+    background: #0835a3; }
+
+#edit {
+  display: none; }
+  #edit.active {
+    display: block; }
+
+#update {
+  display: none; }
+  #update.active {
+    display: block; }
+
+/*-------------------------------------------------------------------------------
+  Inputs
+-------------------------------------------------------------------------------*/
+input[type='text'] {
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  -o-transition: all 0.4s ease;
+  transition: all 0.4s ease; }
+
+input:focus {
+  border: 1px solid #ccc;
+  outline: none; }
+
+input {
+  color: #353740;
+  padding: 8px 0 8px 14px;
+  margin: 4px 0;
+  width: 100%; }
+
+/*-------------------------------------------------------------------------------
+  Forms
+-------------------------------------------------------------------------------*/
+.clear-data {
+  display: inline-block;
+  height: 30px;
+  padding-left: 14px;
+  vertical-align: middle;
+  width: 100%; }
+
+/*-------------------------------------------------------------------------------
+  List View
+-------------------------------------------------------------------------------*/
+.request {
+  border-bottom: 1px solid #aeaeb1;
+  margin-bottom: 20px;
+  padding: 12px 18px; }
+  .request:first-of-type {
+    border-top: 1px solid #aeaeb1; }
+
+.request div {
+  margin-bottom: 6px; }
+  .request div:first-of-type {
+    font-size: 1.5em;
+    line-height: 1.3em; }
+  .request div:nth-of-type(2) {
+    text-transform: uppercase; }
+
+/*-------------------------------------------------------------------------------
+  Detail View
+-------------------------------------------------------------------------------*/
