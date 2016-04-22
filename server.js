@@ -6,7 +6,7 @@ var app = express();
 
 var PORT = process.env.PORT || 3001;
 
-var GRANT_URL = 'http://internalgrantdev.azurewebsites.net/api/MGrants';
+var GRANT_URL = 'https://internalgrantdev.azurewebsites.net/api/MGrants';
 
 app.use(bodyParser.json());
 app.use(express.static('public'));
