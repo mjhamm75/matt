@@ -4,6 +4,8 @@ var bodyParser = require('body-parser')
 
 var app = express();
 
+var PORT = process.env.PORT || 3001;
+
 var GRANT_URL = 'http://internalgrantdev.azurewebsites.net/api/MGrants';
 
 app.use(bodyParser.json());
@@ -74,6 +76,6 @@ app.delete('/grants/:id', function(req, res) {
     })
 })
 
-app.listen(3001, function() {
+app.listen(PORT, function() {
   console.log('is listening');
 })
