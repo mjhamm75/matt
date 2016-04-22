@@ -8,20 +8,20 @@ $('#edit').click(function() {
 
 function updateGrantView(grant) {
     var inputDiv = $('<div class="edits"></div>');
-    var inputId = $('<span>ID</span><input disabled/>').val(grant.Id);
-    var inputTitle = $('<span>Title</span><input />').val(grant.Title);
-    var inputPI = $('<span>Principal Investigator</span><input />').val(grant['PI']);
-    var inputCollege = $('<span>College</span><input />').val(grant.College);
-    var inputDept = $('<span>Department</span><input />').val(grant.Dept);
-    var inputConferenceDate = $('<span>Conference Date</span><input />').val(grant.ConferenceDate);
-    var inputLocation = $('<span>Location</span><input />').val(grant.Location);
-    var inputPurpose = $('<span>Purpose</span><input />').val(grant.Purpose);
-    var inputAmount = $('<span>Amount</span><input />').val(grant.Amount);
-    var inputAttendees = $('<span>Attendees</span><input />').val(grant.Attendees);
-    var inputSubmissionStatus = $('<span>Submission Status</span><input />').val(grant.SubmissionStatus);
-    var inputCustom1 = $('<span>Custom 1</span><input />').val(grant.Custom1);
-    var inputCustom2 = $('<span>Custom 2</span><input />').val(grant.Custom2);
-    var inputCustom3 = $('<span>Custom 3</span><input />').val(grant.Custom3);
+    var inputId = $('<input disabled/>').val(grant.Id);
+    var inputTitle = $('<input />').val(grant.Title);
+    var inputPI = $('<input />').val(grant['PI']);
+    var inputCollege = $('<input />').val(grant.College);
+    var inputDept = $('<input />').val(grant.Dept);
+    var inputConferenceDate = $('<input />').val(grant.ConferenceDate);
+    var inputLocation = $('<input />').val(grant.Location);
+    var inputPurpose = $('<input />').val(grant.Purpose);
+    var inputAmount = $('<input />').val(grant.Amount);
+    var inputAttendees = $('<input />').val(grant.Attendees);
+    var inputSubmissionStatus = $('<input />').val(grant.SubmissionStatus);
+    var inputCustom1 = $('<input />').val(grant.Custom1);
+    var inputCustom2 = $('<input />').val(grant.Custom2);
+    var inputCustom3 = $('<input />').val(grant.Custom3);
     inputDiv.append(inputId)
         .append(inputTitle)
         .append(inputPI)
