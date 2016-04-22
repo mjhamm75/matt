@@ -12,7 +12,7 @@ $('#button').click(function(e) {
   var submissionStatus = 'pending';
   var draft = 'draft';
 
-  var GRANT_URL = 'http://internalgrantdev.azurewebsites.net/api/MGrants';
+  var GRANT_URL = 'https://internalgrantdev.azurewebsites.net/api/MGrants';
 
   $.ajax({
     url: GRANT_URL,
@@ -57,7 +57,7 @@ $('#save').click(function(e) {
   var amount = document.getElementById('amount').value;
   var attendees = document.getElementById('attendees').value;
 
-  var GRANT_URL = 'http://internalgrantdev.azurewebsites.net/api/MGrants';
+  var GRANT_URL = 'https://internalgrantdev.azurewebsites.net/api/MGrants';
 
   $.ajax({
     url: GRANT_URL,
