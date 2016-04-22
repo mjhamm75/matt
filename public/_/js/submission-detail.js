@@ -6,21 +6,21 @@ $('#edit').click(function() {
   $('#update').addClass('active');
 });
 
-$('#approve').click(function() {
-  $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
-        method: 'PUT',
-        data: {
-          "Id": grantId,
-          "SubmissionStatus": 'Approved'
-        }
-    })
-    .done(function(res) {
-      alert('approved!');
-    })
-    .error(function(err) {
-      alert('Something is not right');
-    });
-});
+//$('#approve').click(function() {
+//  $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
+//        method: 'PUT',
+//        data: {
+//          "Id": grantId,
+//          "SubmissionStatus": 'Approved'
+//        }
+//    })
+//    .done(function(res) {
+//      alert('approved!');
+//    })
+//    .error(function(err) {
+//      alert('Something is not right');
+//    });
+//});
 
 $('#reject').click(function() {
   alert('rejected!');
@@ -90,6 +90,32 @@ function updateGrantView(grant) {
             .error(function(err) {
               alert('Something is not right');
             });
+    });
+  
+      $(document).on('click', '#approve', function(e) {
+      $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
+            method: 'PUT',
+            data: {
+              "Id": grantId,
+              "Title": inputTitle.val(),
+              "PI": inputPI.val(),
+              "College": inputCollege.val(),
+              "Dept": inputDept.val(),
+              "ConferenceDate": inputConferenceDate.val(),
+              "Location": inputLocation.val(),
+              "Purpose": inputPurpose.val(),
+              "Amount": inputAmount.val(),
+              "Attendees": inputAttendees.val(),
+              "SubmissionStatus": 'Approved'
+            }
+        })
+        .done(function(res) {
+          alert('This record is approved.');
+          updateGrantView(res.grant);  // i don't think i need this here do i
+        })
+        .error(function(err) {
+          alert('Something is not right');
+        });
     });
 }
 
