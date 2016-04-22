@@ -10,6 +10,7 @@ $('#approve').click(function() {
   $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
         method: 'PUT',
         data: {
+          "Id": grantId,
           "SubmissionStatus": 'Approved'
         }
     })
