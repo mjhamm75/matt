@@ -36,7 +36,8 @@ $('#button').click(function(e) {
   .done(function (result) {
     alert('Your application has been submitted.');
     $('.clear-data').val('');
-    window.location.href = "index.html";
+    $('textarea').val('');
+    window.location.href = "requests.html";
   })
   .error(function(err) {
     alert('Something is not right.');
@@ -80,8 +81,9 @@ $('#save').click(function(e) {
   })
   .done(function (result) {
     $('.clear-data').val('');
+    $('textarea').val('');
     alert('Your request has been saved.')
-    // window.location.href('http://elliotts-macbook-air.local:5757/success.html');  // pota REDIRECT
+    window.location.href = "requests.html";
   })
   .error(function(err) {
     alert('Something is not right');

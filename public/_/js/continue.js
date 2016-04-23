@@ -6,7 +6,7 @@ $.get('/grants')
     grants.forEach(function(grant) {
       
       
-      var url = "submission-detail.html#" + grant.Id;
+      var url = "continue-detail.html#" + grant.Id;
       var viewApplication = $('<a href="' + url +'" id="view">View</a>');
       var deleteApplication = $('<div><a href="#">Delete</a></div>');     
       var li = $('<li id="' + grant.Id + '" class="request"></li>');

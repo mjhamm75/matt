@@ -92,58 +92,91 @@ function updateGrantView(grant) {
             });
     });
   
-      $(document).on('click', '#approve', function(e) {
-      $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
-            method: 'PUT',
-            data: {
-              "Id": grantId,
-              "Title": inputTitle.val(),
-              "PI": inputPI.val(),
-              "College": inputCollege.val(),
-              "Dept": inputDept.val(),
-              "ConferenceDate": inputConferenceDate.val(),
-              "Location": inputLocation.val(),
-              "Purpose": inputPurpose.val(),
-              "Amount": inputAmount.val(),
-              "Attendees": inputAttendees.val(),
-              "SubmissionStatus": 'Approved'
-            }
-        })
-        .done(function(res) {
-          alert('This record is approved.');
-          window.location.href = "submissions.html";
-        })
-        .error(function(err) {
-          alert('Something is not right');
+  
+        $(document).on('click', '#submit', function(e) {
+          $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
+                method: 'PUT',
+                data: {
+                  "Id": grantId,
+                  "Title": inputTitle.val(),
+                  "PI": inputPI.val(),
+                  "College": inputCollege.val(),
+                  "Dept": inputDept.val(),
+                  "ConferenceDate": inputConferenceDate.val(),
+                  "Location": inputLocation.val(),
+                  "Purpose": inputPurpose.val(),
+                  "Amount": inputAmount.val(),
+                  "Attendees": inputAttendees.val(),
+                  "SubmissionStatus": 'Pending'
+                }
+            })
+            .done(function(res) {
+              alert('Your application has been submitted.');
+            window.location.href = "requests.html";
+//              location.reload();
+            })
+            .error(function(err) {
+              alert('Something is not right');
+            });
         });
-    });
   
   
-      $(document).on('click', '#reject', function(e) {
-      $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
-            method: 'PUT',
-            data: {
-              "Id": grantId,
-              "Title": inputTitle.val(),
-              "PI": inputPI.val(),
-              "College": inputCollege.val(),
-              "Dept": inputDept.val(),
-              "ConferenceDate": inputConferenceDate.val(),
-              "Location": inputLocation.val(),
-              "Purpose": inputPurpose.val(),
-              "Amount": inputAmount.val(),
-              "Attendees": inputAttendees.val(),
-              "SubmissionStatus": 'Rejected'
-            }
-        })
-        .done(function(res) {
-          alert('This record is rejected.');
-          window.location.href = "submissions.html";
-        })
-        .error(function(err) {
-          alert('Something is not right');
-        });
-    });
+  
+  
+  
+  
+//      $(document).on('click', '#approve', function(e) {
+//      $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
+//            method: 'PUT',
+//            data: {
+//              "Id": grantId,
+//              "Title": inputTitle.val(),
+//              "PI": inputPI.val(),
+//              "College": inputCollege.val(),
+//              "Dept": inputDept.val(),
+//              "ConferenceDate": inputConferenceDate.val(),
+//              "Location": inputLocation.val(),
+//              "Purpose": inputPurpose.val(),
+//              "Amount": inputAmount.val(),
+//              "Attendees": inputAttendees.val(),
+//              "SubmissionStatus": 'Approved'
+//            }
+//        })
+//        .done(function(res) {
+//          alert('This record is approved.');
+//          location.reload();
+//        })
+//        .error(function(err) {
+//          alert('Something is not right');
+//        });
+//    });
+  
+  
+//      $(document).on('click', '#reject', function(e) {
+//      $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
+//            method: 'PUT',
+//            data: {
+//              "Id": grantId,
+//              "Title": inputTitle.val(),
+//              "PI": inputPI.val(),
+//              "College": inputCollege.val(),
+//              "Dept": inputDept.val(),
+//              "ConferenceDate": inputConferenceDate.val(),
+//              "Location": inputLocation.val(),
+//              "Purpose": inputPurpose.val(),
+//              "Amount": inputAmount.val(),
+//              "Attendees": inputAttendees.val(),
+//              "SubmissionStatus": 'Rejected'
+//            }
+//        })
+//        .done(function(res) {
+//          alert('This record is rejected.');
+//          location.reload();
+//        })
+//        .error(function(err) {
+//          alert('Something is not right');
+//        });
+//    });
 }
 
 var GRANT_URL = 'https://internalgrantdev.azurewebsites.net/api/MGrants/';
