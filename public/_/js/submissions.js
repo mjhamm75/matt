@@ -5,48 +5,44 @@ $.get('/grants')
 
     grants.forEach(function(grant) {
       var url = "submission-detail.html#" + grant.Id;
-      var viewApplication = $('<a href="' + url +'" id="view">View</a>');
-      var deleteApplication = $('<div><a href="#">Delete</a></div>');
-//      viewApplication.on('click', function() {
-//        $("#detail-view").load("/grants/" + grant.Id);
-//      });      
+      var viewApplication = $('<div class="view-this"><a href="' + url +'" id="view">View</a></div>');
+      var deleteApplication = $('<div class="delete-this"><a href="#">Delete</a></div>');
       var li = $('<li id="' + grant.Id + '" class="request"></li>');
-      var Id = $('<div>' + grant.Id + '</div>');
-//      var Title = $('<div>' + grant.Title + '</div>');
-      var Title = $('<div><a href="' + url +'" id="view">' + grant.Title + '</a></div>');
-      var PI = $('<div>' + grant['PI'] + '</div>');
-      var College = $('<div>' + grant.College + '</div>');
-      var Dept = $('<div>' + grant.Dept + '</div>');
-      var ConferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
-      var Location = $('<div>' + grant.Location + '</div>');
-      var Purpose = $('<div>' + grant.Purpose + '</div>');
-      var Amount = $('<div>' + grant.Amount + '</div>');
-      var Attendees = $('<div>' + grant.Attendees + '</div>');
-      var SubmissionStatus = $('<div>' + grant.SubmissionStatus + '</div>');
-      var Custom1 = $('<div>' + grant.Custom1 + '</div>');
-      var Custom2 = $('<div>' + grant.Custom2 + '</div>');
-      var Custom3 = $('<div>' + grant.Custom3 + '</div>');
-//      li.append(Id)
-      li.append(Title)
-        .append(PI)
-        .append(College)
-//        .append(Dept)
-        .append(ConferenceDate)
-//        .append(Location)
-//        .append(Purpose)
-//        .append(Amount)
-//        .append(Attendees)
-//        .append(SubmissionStatus)
-//        .append(Custom1)
-//        .append(Custom2)
-//        .append(Custom3)
-//        .append(viewApplication)
+      var id = $('<div>' + grant.Id + '</div>');
+      var title = $('<div><a href="' + url +'" id="view">' + grant.Title + '</a></div>');
+      var pi = $('<div>' + grant['PI'] + '</div>');
+      var college = $('<div>' + grant.College + '</div>');
+      var dept = $('<div>' + grant.Dept + '</div>');
+      var conferenceDate = $('<div>' + grant.ConferenceDate + '</div>');
+      var location = $('<div>' + grant.Location + '</div>');
+      var purpose = $('<div>' + grant.Purpose + '</div>');
+      var amount = $('<div>' + grant.Amount + '</div>');
+      var attendees = $('<div>' + grant.Attendees + '</div>');
+      var submissionStatus = $('<div class="approve-this">' + grant.SubmissionStatus + '</div>');
+//      var Custom1 = $('<div>' + grant.Custom1 + '</div>');
+//      var Custom2 = $('<div>' + grant.Custom2 + '</div>');
+//      var Custom3 = $('<div>' + grant.Custom3 + '</div>');
+//      li.append(id)
+      li.append(title)
+        .append(pi)
+//        .append(college)
+//        .append(dept)
+//        .append(conferenceDate)
+//        .append(location)
+//        .append(purpose)
+//        .append(amount)
+//        .append(attendees)
+        .append(submissionStatus)
+//        .append(custom1)
+//        .append(custom2)
+//        .append(custom3)
+        .append(viewApplication)
         .append(deleteApplication);
 
       ul.append(li);
       
       
-      Title.on('click', function() {
+      title.on('click', function() {
         $("#detail-view").load("/grants/" + grant.Id);
       });
       deleteApplication.on('click', function(e) {

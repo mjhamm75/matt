@@ -8,9 +8,13 @@ $.get('/grants')
       
       var url = "submission-detail.html#" + grant.Id;
       var viewApplication = $('<a href="' + url +'" id="view">View</a>');
-      var deleteApplication = $('<div><a href="#">Delete</a></div>');     
+      var deleteApplication = $('<div><a href="#">Delete</a></div>');
+//      viewApplication.on('click', function() {
+//        $("#detail-view").load("/grants/" + grant.Id);
+//      });      
       var li = $('<li id="' + grant.Id + '" class="request"></li>');
       var id = $('<div>' + grant.Id + '</div>');
+//      var Title = $('<div>' + grant.Title + '</div>');
       var title = $('<div><a href="' + url +'" id="view">' + grant.Title + '</a></div>');
       var pi = $('<div>' + grant['PI'] + '</div>');
       var college = $('<div>' + grant.College + '</div>');
@@ -27,7 +31,7 @@ $.get('/grants')
       
       var notice = 'There are no drafts available.'
       
-      if(grant.SubmissionStatus == 'Draft' || grant.SubmissionStatus == 'draft') {
+      if(grant.SubmissionStatus !== 'draft') {
                   //      li.append(id)
         li.append(title)
           .append(pi)

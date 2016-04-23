@@ -12,6 +12,10 @@
   Basic Elements
 -------------------------------------------------------------------------------*/
 
+html {  // for sticky footer
+  position: relative;
+  min-height: 100%;
+}
 
 
 body {
@@ -20,6 +24,7 @@ body {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
+  margin: 0 0 50px;  // for sticky footer
 }
 
 
@@ -28,8 +33,8 @@ body {
   Wraps
 -------------------------------------------------------------------------------*/
 
-.outer-wrap {
-  overflow: hidden;
+#outer-wrap {
+  position: relative;
   width: 100%;
 }
 
@@ -38,10 +43,6 @@ body {
   margin: 0 auto;
   position: relative;
   width: 90%;
-}
-
-.nav-wrap {
-
 }
 
 .headline-wrap {
@@ -71,13 +72,15 @@ body {
 }
 
 .footer-wrap {
-  background: $blue;
-  height: 50px;
-  margin-top: 50px;
+
 }
 
 .button-wrap {
+  margin: 16px 0;
   text-align: center;
+  @include responsive(roosevelt) {
+    text-align: left;
+  }
 }
 
 #list-view {
@@ -87,34 +90,104 @@ body {
 
 
 /*-------------------------------------------------------------------------------
-  Images and Graphics
+  Navigation
 -------------------------------------------------------------------------------*/
 
-.nav {
-  display: inline-block;
-  padding: 10px;
-  &.icon {
-    background: $red60;
-    margin-bottom: -5px;
-    img {
-      height: 40px;
-    }
-  }
-  &.logo {
-    margin-bottom: -5px;
-    width: 78%;
-  }
-  &.item {  // nav items are hidden for mobile
-    display: none;
+#header {
+  height: 70px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  @include responsive(truman) {
+    height: 80px;
   }
 }
 
+.main-nav {
+  background: $blue;
+  color: white;
+  position: relative;
+  text-transform: uppercase;
+}
+
+.nav {
+  float: left;
+  padding: 20px 10px;
+  &.icon {
+    background: $red60;
+    float: left;
+    margin-bottom: -5px;
+    width: 20%;
+    @include responsive(truman) {
+      width: 96px;
+    }
+    img {
+      margin: 0 auto;
+      width: 30px;
+      @include responsive(truman) {
+        width: 40px;
+      }
+    }
+  }
+  &.logo {
+    padding-bottom: 18px;
+    width: 80%;
+    @include responsive(truman) {
+      margin-left: 42px;
+      width: auto;
+    }
+    img {
+      margin: 2px auto 0;
+      width: 212px;
+      @include responsive(truman) {
+        width: 282px;
+      }
+    }
+  }
+}
+
+.items {
+  display: none;
+  @include responsive(johnson) {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+  }
+}
+
+.item {
+  display: block;
+  margin-bottom: 6px;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+#footer {  // this is sticky
+  background: $blue;
+  bottom: 0;
+  height: 50px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+}
+
+
+/*-------------------------------------------------------------------------------
+  Images and Graphics
+-------------------------------------------------------------------------------*/
 
 .hero {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 440px;
+  margin-top: 70px;  // accounts for fixed header
   position: relative;
   &:after {  // GSU Seal
     background-image: url('/_/img/gsu-seal-half.png');
@@ -129,7 +202,7 @@ body {
     right: 0;
     top: 340px;
     width: 200px;
-    z-index: 39;
+    z-index: 7;
   }
   &:before {  // dark overlay
     background: rgba(0,0,0,0.5);
@@ -139,7 +212,9 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-//    z-index: 1;
+  }
+  @include responsive(truman) {
+    margin-top: 80px;
   }
 }
 
@@ -154,17 +229,24 @@ h1 {
   font-size: 2em;
   font-weight: 400;
   line-height: 1.2em;
-  margin: 60px 0 40px 0;
-  text-align: center;
+  margin: 60px 0 20px;
   text-transform: uppercase;
+  &.topmargin {  // accounts for fixed header
+    margin-top: 100px;
+    @include responsive(truman) {
+      margin-top: 120px;
+    }
+  }
 }
 
 h3 {
   color: $red60;
   font-size: 1.4em;
   margin: 36px 0 16px;
-  text-align: center;
   text-transform: uppercase;
+  @include responsive(johnson) {
+    font-size: 1.6em;
+  }
 }
 
 li {
@@ -175,12 +257,6 @@ li {
     &:first-of-type {
 //      border-top: 1px solid $gray20;
     }
-  }
-}
-
-p {
-  .option & {
-    font-size: 1.2em;
   }
 }
 
@@ -204,11 +280,15 @@ span {
 
 .headlines {
   border: 1px solid white;
-  left: 0;
+  left: 50%;
   padding: 40px 14px 30px;
   position: absolute;
   top: 30%;
-  transform: translateY(-30%);
+  transform: translate(-50%, -30%);
+  width: 300px;
+  @include responsive(truman) {
+    width: 400px;
+  }
 }
 
 .headline {
@@ -242,13 +322,17 @@ span {
 }
 
 .copy {
-  &.little {
-    text-align: center;
+  text-align: center;
+  @include responsive(roosevelt) {
+    text-align: left;
   }
-}
-.option {
-  margin-top: 30px;
-  padding: 0 14px;
+  @include responsive(johnson) {
+    font-size: 1.2em;
+    line-height: 1.4em;
+  }
+  @include responsive(nixon) {
+    width: 800px;
+  }
 }
 
 
@@ -265,17 +349,11 @@ a {
     display: block;
     height: 100%;
   }
-  .nav-item & {
+  .item & {
     &:hover {
       color: $white-purple
     }
   }  
-}
-
-#header {
-  background: $blue;
-  color: white;
-  text-transform: uppercase;
 }
 
 .button {
@@ -283,6 +361,7 @@ a {
   border: none;
   color: white;
   display: inline-block;
+  font-weight: 700;
   text-transform: uppercase;
   @include transition($speedy *2);
   &.large {
@@ -290,20 +369,44 @@ a {
     margin: 40px auto 0;
     padding: 8px 12px;
     width: 96px;
+    @include responsive(roosevelt) {
+      margin-right: 8px;
+      &:last-of-type {
+        margin-right: initial;
+      }
+    }
   }
   &.small {
     font-size: 1.0em;
-    margin: 16px 0 20px;
+    margin: 10px 0;
     padding: 8px 12px;
-    width: 152px;
+    width: 160px;
+    @include responsive(truman) {
+      margin-right: 12px;
+      &:last-of-type {
+        margin-right: initial;
+      }
+    }
+    @include responsive(johnson) {
+      width: 200px;
+    }
   }
   &.tiny {
     display: inline-block;
     font-size: 0.9em;
-    font-weight: 700;
     margin: 16px 0 20px;
     padding: 8px 12px;
     width: 80px;
+    @include responsive(roosevelt) {
+      margin-right: 6px;
+      width: 90px;
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+    @include responsive(johnson) {
+      width: 110px;
+    }
   }
   &:hover {
     background: $blue;
@@ -324,6 +427,37 @@ a {
   }
 }
 
+.return {
+  color: $red60;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.9em;
+  margin-bottom: 40px;
+  padding-left: 20px;
+  position: relative;
+  text-transform: uppercase;
+  &:before {
+    background-image: url('../img/icon-back.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    height: 16px;
+    left: 0;
+    position: absolute;
+    top: 1px;
+    width: 16px;
+    @include transition($speedy * 4);
+  }
+  &:hover:before {
+    left: -10px;
+  }
+  @include responsive(johnson) {
+    &:before {
+      top: 3px;
+    }
+  }
+}
 
 
 /*-------------------------------------------------------------------------------
@@ -340,11 +474,17 @@ input:focus {
   outline: none;
 }
 
-input {  // detail view page and the application page for some
+input,
+textarea {  // detail view page and the application page for some
   color: $gray60;  //
-  padding: 8px 0 8px 14px;
+  padding: 8px 8px 8px 14px;
   margin: 4px 0;  //
   width: 100%;
+}
+
+textarea {
+  border: 1px solid $gray20;
+  resize: none;
 }
 
 #form {
@@ -359,6 +499,19 @@ input {  // detail view page and the application page for some
   width: 100%;
 }
 
+.edits {
+  text-align: left;
+}
+
+span {
+  .edits & {
+    color: $gray30;
+    display: block;
+    font-size: 1.2em;
+    margin-top: 18px;
+    text-transform: uppercase;
+  }
+}
 
 
 /*-------------------------------------------------------------------------------
@@ -413,7 +566,7 @@ input {  // detail view page and the application page for some
 .request {
   border-bottom: 1px solid $gray30;
   margin-bottom: 20px;
-  padding: 6px 18px;
+  padding: 16px 18px;
   &:first-of-type {
     border-top: 1px solid $gray30;
   }
@@ -434,16 +587,54 @@ div {
           line-height: 1.3em;
         }
         &:nth-of-type(2) {
+          margin-bottom: 20px;
           text-transform: uppercase;
+        }
+        &.delete-this,
+        &.view-this,
+        &.approve-this {
+          display: inline-block;
+          margin-right: 12px;
+          padding: 4px 0;
+          width: 70px;
+          @include responsive(roosevelt) {
+            text-align: center;
+            width: 90px;
+          }
+          @include responsive(johnson) {
+            padding: 8px;
+            width: 110px;
+          }
+        }
+        &.approve-this {
+          border: 2px solid $purple;
+          @include transition($speedy *2 );
+          &:hover {
+            color: $purple;
+          }
+        }
+        &.delete-this {
+          border: 2px solid $red40;
+          @include transition($speedy *2 );
+          &:hover {
+            color: $red40;
+          }
+        }
+        &.view-this {
+          border: 2px solid $green;
+          @include transition($speedy *2 );
+          &:hover {
+            color: $green;
+          }
+        }
+        &:last-of-type {
+          margin-right: 0;
         }
       }
       .page-continue & {
         margin-bottom: 6px;
         &:first-of-type {
           text-transform: uppercase;
-        }
-        &:nth-of-type(2) {
-
         }
       }
     }

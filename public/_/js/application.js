@@ -27,19 +27,19 @@ $('#button').click(function(e) {
       "Purpose" : purpose,
       "Amount" : amount,
       "Attendees" : attendees,
-      "SubmissionStatus" : 'pending',
-      "Custom1" : null,
-      "Custom2" : null,
-      "Custom3" : null
+      "SubmissionStatus" : 'pending'
+//      "Custom1" : null,
+//      "Custom2" : null,
+//      "Custom3" : null
     }
   })
   .done(function (result) {
+    alert('Your application has been submitted.');
     $('.clear-data').val('');
-    var win = window.open(url, '_blank');
-    win.focus();
+    window.location.href = "index.html";
   })
   .error(function(err) {
-    alert('Something is not right');
+    alert('Something is not right.');
   });
 });
 

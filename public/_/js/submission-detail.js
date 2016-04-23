@@ -6,42 +6,25 @@ $('#edit').click(function() {
   $('#update').addClass('active');
 });
 
-//$('#approve').click(function() {
-//  $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
-//        method: 'PUT',
-//        data: {
-//          "Id": grantId,
-//          "SubmissionStatus": 'Approved'
-//        }
-//    })
-//    .done(function(res) {
-//      alert('approved!');
-//    })
-//    .error(function(err) {
-//      alert('Something is not right');
-//    });
-//});
-
-$('#reject').click(function() {
-  alert('rejected!');
-});
-
 function updateGrantView(grant) {
     var inputDiv = $('<div class="edits"></div>');
-    var inputId = $('<input disabled/>').val(grant.Id);
-    var inputTitle = $('<input />').val(grant.Title);
-    var inputPI = $('<input />').val(grant['PI']);
-    var inputCollege = $('<input />').val(grant.College);
-    var inputDept = $('<input />').val(grant.Dept);
-    var inputConferenceDate = $('<input />').val(grant.ConferenceDate);
-    var inputLocation = $('<input />').val(grant.Location);
-    var inputPurpose = $('<input />').val(grant.Purpose);
-    var inputAmount = $('<input />').val(grant.Amount);
-    var inputAttendees = $('<input />').val(grant.Attendees);
-    var inputSubmissionStatus = $('<input />').val(grant.SubmissionStatus);
-    var inputCustom1 = $('<input />').val(grant.Custom1);
-    var inputCustom2 = $('<input />').val(grant.Custom2);
-    var inputCustom3 = $('<input />').val(grant.Custom3);
+    var inputId = $('<input id="inputId" disabled/>').val(grant.Id);
+    var inputTitle = $('<textarea id="inputTitle" rows="2"></textarea>').val(grant.Title);
+    var inputPI = $('<input id="inputPI" />').val(grant['PI']);
+    var inputCollege = $('<input id="inputCollege" />').val(grant.College);
+    var inputDept = $('<input id="inputDept" />').val(grant.Dept);
+    var inputConferenceDate = $('<input id="inputConferenceDate" />').val(grant.ConferenceDate);
+    var inputLocation = $('<input id="inputLocation" />').val(grant.Location);
+    var inputPurpose = $('<textarea id="inputPurpose" rows="5"></textarea>').val(grant.Purpose);
+    var inputAmount = $('<input id="inputAmount" />').val(grant.Amount);
+    var inputAttendees = $('<input id="inputAttendees" />').val(grant.Attendees);
+    var inputSubmissionStatus = $('<input id="inputSubmissionStatus" />').val(grant.SubmissionStatus);
+    var inputCustom1 = $('<input id="inputCustom1" />').val(grant.Custom1);
+    var inputCustom2 = $('<input id="inputCustom2" />').val(grant.Custom2);
+    var inputCustom3 = $('<input id="inputCustom3" />').val(grant.Custom3);
+    var inputApprove = 'Approved';
+    var inputReject = 'Rejected';
+  
     inputDiv.append(inputId)
         .append(inputTitle)
         .append(inputPI)
@@ -56,8 +39,25 @@ function updateGrantView(grant) {
 //        .append(inputCustom1)
 //        .append(inputCustom2)
 //        .append(inputCustom3);
+  
 
     $('#edit-view').append(inputDiv);
+  
+    $('<span>ID</span>').insertBefore('#inputId');
+    $('<span>Title</span>').insertBefore('#inputTitle');
+    $('<span>Principal Investigator</span>').insertBefore('#inputPI');
+    $('<span>College</span>').insertBefore('#inputCollege');
+    $('<span>Department</span>').insertBefore('#inputDept');
+    $('<span>Conference Date</span>').insertBefore('#inputConferenceDate');
+    $('<span>Location</span>').insertBefore('#inputLocation');
+    $('<span>Purpose</span>').insertBefore('#inputPurpose');
+    $('<span>Amount</span>').insertBefore('#inputAmount');
+    $('<span>Attendees</span>').insertBefore('#inputAttendees');
+    $('<span>Submission Status</span>').insertBefore('#inputSubmissionStatus');
+  
+  
+  
+  
 
     $(document).on('click', '#update', function(e) {
 //      e.preventDefault();
@@ -111,7 +111,34 @@ function updateGrantView(grant) {
         })
         .done(function(res) {
           alert('This record is approved.');
-          updateGrantView(res.grant);  // i don't think i need this here do i
+          location.reload();
+        })
+        .error(function(err) {
+          alert('Something is not right');
+        });
+    });
+  
+  
+      $(document).on('click', '#reject', function(e) {
+      $.ajax('https://internalgrantdev.azurewebsites.net/api/MGrants/'+ grantId, {
+            method: 'PUT',
+            data: {
+              "Id": grantId,
+              "Title": inputTitle.val(),
+              "PI": inputPI.val(),
+              "College": inputCollege.val(),
+              "Dept": inputDept.val(),
+              "ConferenceDate": inputConferenceDate.val(),
+              "Location": inputLocation.val(),
+              "Purpose": inputPurpose.val(),
+              "Amount": inputAmount.val(),
+              "Attendees": inputAttendees.val(),
+              "SubmissionStatus": 'Rejected'
+            }
+        })
+        .done(function(res) {
+          alert('This record is rejected.');
+          location.reload();
         })
         .error(function(err) {
           alert('Something is not right');
