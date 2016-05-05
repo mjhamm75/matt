@@ -22,6 +22,17 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0
 		},
+	"\/mock\/min\/mock-grants-min.js": {
+		"fileType": 64,
+		"ignore": 1,
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/mock\/min\/mock-grants-min.js",
+		"outputAbbreviatedPath": "\/mock\/min\/min\/mock-grants-min-min.js",
+		"outputPathIsOutsideProject": 0,
+		"outputPathIsSetByUser": 0,
+		"outputStyle": 1,
+		"syntaxCheckerStyle": 1
+		},
 	"\/mock\/mock-grants.js": {
 		"fileType": 64,
 		"ignore": 0,
